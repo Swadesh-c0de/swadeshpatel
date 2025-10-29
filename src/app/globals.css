@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap');
+@import "tailwindcss";
+
+/* * 1. FONT IMPORT (Add this to your HTML or CSS)
+ * This is the most important step for the "techy" feel.
+ * We'll use Fira Code, which has cool "ligatures" (e.g., => becomes →).
+ */
+
+/* * 2. CSS VARIABLES (THEME DEFINITION)
+ * All your theme colors are defined here.
+ */
+:root {
+  /* Dark "Terminal" Palette */
+  --bg-color: #1a1b26;      /* A dark, slightly blue-tinted black */
+  --window-bg: #24283b;     /* A lighter bg for "windows" */
+  --border-color: #414868;  /* A subtle border */
+  
+  /* Text & Accents */
+  --text-color: #c0c5ce;   /* Main text - off-white */
+  --text-dim: #5c637a;      /* Dimmed text (for conky, etc.) */
+  
+  --accent-green: #9ece6a;  /* For headings, success */
+  --accent-blue: #7aa2f7;   /* For links, active states */
+  --accent-cyan: #162731;   /* For link hover */
+  --accent-yellow: #e0af68; /* For warnings, highlights */
+  --accent-magenta: #bb9af7;/* Other accents */
+
+  /* Fonts */
+  --font-mono: 'Fira Code', 'JetBrains Mono', 'Roboto Mono', monospace;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  /* UI Sizing */
+  --border-radius: 8px;
+}
+
+/* * 3. GLOBAL RESET & BASE STYLES
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Prevents scrolling on the main page */
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-mono); /* This is the key "techy" part! */
+  
+  /* Smooth font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* * 4. BASE TYPOGRAPHY
+ */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--accent-green);
+  font-weight: 600;
+  margin-bottom: 0.75em;
+  /* Example: A terminal-style prompt */
+  /*
+  &::before {
+    content: "$ ";
+    color: var(--accent-blue);
+  }
+  */
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+
+a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-cyan);
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 4px;
+}
+
+/* * 5. UTILITY CLASSES (Optional but helpful)
+ */
+.text-green { color: var(--accent-green); }
+.text-blue { color: var(--accent-blue); }
+.text-yellow { color: var(--accent-yellow); }
+.text-magenta { color: var(--accent-magenta); }
+.text-dim { color: var(--text-dim); }
+
+/* Main content wrapper */
+.main-content {
+  padding: 2rem;
+}
