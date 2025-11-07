@@ -71,22 +71,6 @@ body::before {
   --color-sidebar-ring: var(--sidebar-ring);
   --animate-meteor-effect: meteor 5s linear infinite;
 
-  /* @keyframes meteor {
-    0% {
-      transform: rotate(-45deg) translateX(0);
-      opacity: 1;
-    }
-
-    70% {
-      opacity: 1;
-    }
-
-    100% {
-      transform: rotate(-45deg) translateX(-50rem);
-      opacity: 0;
-    }
-  } */
-
   @keyframes meteor {
     0% {
       transform: rotate(var(--angle)) translateX(0);
@@ -190,7 +174,7 @@ body::before {
     scroll-behavior: smooth;
   }
 
-  /* Custom scrollbar - Dark theme */
+  /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 10px;
   }
@@ -218,7 +202,6 @@ body::before {
     background: linear-gradient(180deg, rgba(0, 183, 255, 0.6), rgba(120, 0, 255, 0.6));
   }
 
-  /* Firefox scrollbar */
   * {
     scrollbar-width: thin;
     scrollbar-color: rgba(72, 73, 78, 0.4) rgba(0, 0, 0, 0.5);
