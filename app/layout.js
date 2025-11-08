@@ -1,26 +1,15 @@
 "use client";
 
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Dock from "./components/Dock";
 import { Particles } from "@/components/ui/shadcn-io/particles";
 import { Meteors } from "@/components/ui/shadcn-io/meteors";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-dvh flex flex-col overflow-hidden bg-transparent text-white`}
+        className={`antialiased relative min-h-dvh flex flex-col overflow-hidden bg-transparent text-white`}
       >
         {/* Cosmic Background */}
         <Meteors number={10} className="scale-120" />
