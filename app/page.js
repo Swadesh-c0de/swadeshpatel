@@ -97,12 +97,6 @@ export default function Home() {
           </div>
 
           {/* Links */}
-          {/* <div className={`lg:col-span-4 transition-all duration-1000 delay-200 ${mounted ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 h-[214px]
-                rounded-2xl p-0 hover:bg-white/10 hover:border-white/20 transition-all duration-300 object-fill overflow-hidden relative">
-              
-            </div>
-          </div> */}
           <div className={`lg:col-span-2 transition-all duration-1000 delay-200 ${mounted ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
           >
             <div className="bg-black/5 backdrop-blur-sm border border-zinc-400/50 rounded-2xl px-6 py-3 h-full flex flex-col gap-3 hover:border-white/20 transition-all duration-300">
@@ -119,98 +113,92 @@ export default function Home() {
             </div>
           </div>
 
-          {/* <div
-            className={`lg:col-span-8 transition-all duration-1000 delay-400 ${mounted ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          {/* WORK IN MOTION */}
+          <div
+            className={`lg:col-span-8 transition-all duration-700 delay-200 ${mounted ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
               }`}
           >
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300">
-
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2">
-                  <Rocket className="w-5 h-5 text-zinc-600" />
+            <div className="bg-zinc-black/5 backdrop-blur-md border border-zinc-400/50 rounded-2xl p-6 sm:p-8 hover:border-white/20 transition-all duration-300">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-3">
+                  <Target className="w-5 h-5 text-gray-400" />
+                  <h2 className="text-xl sm:text-2xl font-semibold text-gray-100">
+                    Work in Motion
+                  </h2>
                 </div>
-                <h2 className="text-xl sm:text-2xl font-semibold">What I Love</h2>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <InterestCard
-                  icon={<Terminal className="w-5 h-5" />}
-                  title="Linux & Open Source"
-                  description="Exploring system internals and contributing to the open-source community."
-                />
-                <InterestCard
-                  icon={<Zap className="w-5 h-5" />}
-                  title="Full Stack Development"
-                  description="Creating modern, responsive, and scalable applications."
-                />
-                <InterestCard
-                  icon={<BookOpen className="w-5 h-5" />}
-                  title="Physics & Mathematics"
-                  description="Understanding the fundamental principles of the universe."
-                />
-                <InterestCard
-                  icon={<Rocket className="w-5 h-5" />}
-                  title="Space & Astronomy"
-                  description="Fascinated by cosmic phenomena and deep space exploration."
-                />
-              </div>
-            </div>
-          </div> */}
-          <div className={`lg:col-span-8 transition-all duration-700 delay-200 ${mounted ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"}`}>
-            <div className="bg-black/5 backdrop-blur-sm border border-zinc-400/50 rounded-2xl p-6 sm:p-8 hover:border-white/20 transition-all duration-300">
-              <div className="flex items-center gap-3 mb-6">
-                <Target className="w-5 h-5 text-gray-400" />
-                <h2 className="text-xl sm:text-2xl font-semibold">
-                  Work in Motion
-                </h2>
+                <span className="text-xs text-gray-500 font-mono">
+                  # ongoing development
+                </span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <FocusCard
-                  title="Full-stack patterns"
-                  desc="Next.js App Router, API routes, authentication & deployment."
-                  badge="web"
+                  title="Building Solid Architectures"
+                  desc="Structuring scalable full-stack apps using Next.js, modular APIs, and clean component design."
+                  badge="fullstack"
                 />
                 <FocusCard
-                  title="Linux workflow"
-                  desc="Making Arch my perfect dev OS – dotfiles, CLI tools, scripts."
+                  title="Perfecting My Linux Workflow"
+                  desc="Automating setups, optimizing Arch, and crafting my personal development environment."
                   badge="linux"
                 />
                 <FocusCard
-                  title="Clean UI systems"
-                  desc="Reusable components in Tailwind + React Icons."
-                  badge="ui"
+                  title="UI Engineering"
+                  desc="Designing fluid, maintainable interfaces using Tailwind, Framer Motion, and accessibility-first patterns."
+                  badge="frontend"
                 />
               </div>
             </div>
           </div>
 
-          {/* ========== WORKFLOW / TOOLING (instead of projects/about/apod) ========== */}
+          {/* DAILY WORKFLOW */}
           <div
-            className={`lg:col-span-8 transition-all duration-700 delay-300 ${
-              mounted ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
-            }`}
+            className={`lg:col-span-8 transition-all duration-700 delay-300 ${mounted ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+              }`}
           >
-            <div className="bg-black/5 backdrop-blur-sm border border-zinc-400/50 rounded-2xl p-6 sm:p-8 hover:border-white/20 transition-all duration-300">
-              <div className="flex items-center gap-3 mb-6">
-                <Wrench className="w-5 h-5 text-gray-400" />
-                <h2 className="text-xl sm:text-2xl font-semibold">
-                  My Workflow
-                </h2>
+            <div className="bg-black/5 backdrop-blur-md border border-zinc-400/50 rounded-2xl p-6 sm:p-8 hover:border-white/20 transition-all duration-300">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-3">
+                  <Wrench className="w-5 h-5 text-gray-400" />
+                  <h2 className="text-xl sm:text-2xl font-semibold text-gray-100">
+                    Daily Development Stack
+                  </h2>
+                </div>
+                <span className="text-xs text-gray-500 font-mono">
+                  # tools & workflow
+                </span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
-                <WorkflowItem title="Arch Linux" desc="Primary dev OS" />
-                <WorkflowItem title="VS Code" desc="Main editor" />
-                <WorkflowItem title="Git / GitHub" desc="Version control" />
-                <WorkflowItem title="Docker / Postman" desc="Testing & API" />
+                <WorkflowItem
+                  title="Arch Linux"
+                  desc="Custom-tuned dev OS with zsh, Starship, and Hyprland setup."
+                />
+                <WorkflowItem
+                  title="VS Code"
+                  desc="Main IDE for full-stack projects with custom extensions & shortcuts."
+                />
+                <WorkflowItem
+                  title="Git / GitHub"
+                  desc="Version control and collaborative development environment."
+                />
+                <WorkflowItem
+                  title="Docker / Postman"
+                  desc="Testing, containerization, and API workflow debugging."
+                />
               </div>
 
-              <p className="text-sm text-center text-gray-500 mt-6 font-serif italic">
-                I like building things end-to-end —<br/> setup → code → test → deploy.
-              </p>
+              <div className="border-t border-zinc-700/50 mt-8 pt-5 text-center">
+                <p className="text-sm text-gray-400 font-light italic">
+                  “Write. Debug. Improve. Repeat.”
+                  <span className="text-zinc-500 block text-xs mt-1">
+                    — my everyday dev cycle
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
+
 
         </div>
       </div>
@@ -275,6 +263,7 @@ const techStack2 = [
   { title: "KDE Plasma", node: <SiKdeplasma className="w-6 h-6 text-blue-400 mx-auto" /> },
   { title: "GitLab", node: <FaGitlab className="w-6 h-6 text-orange-500 mx-auto" /> },
 ]
+
 function SocialButton({ icon, label, url }) {
   return (
     <a
@@ -287,24 +276,6 @@ function SocialButton({ icon, label, url }) {
         <span className="text-sm font-medium">{label}</span>
       </div>
     </a>
-  );
-}
-
-function InterestCard({ icon, title, description }) {
-  return (
-    <div className="bg-zinc-900 border border-white/20 rounded-lg p-5 hover:bg-white/20 hover:border-white/30 transition-all duration-300 group cursor-default">
-      <div className="flex items-start gap-3">
-        <div className="p-2 bg-white/10 rounded-lg text-gray-300 group-hover:text-white transition-colors shrink-0">
-          {icon}
-        </div>
-        <div className="flex-1 min-w-0">
-          <h3 className="text-white font-semibold mb-1.5 text-sm sm:text-base">
-            {title}
-          </h3>
-          <p className="text-sm text-gray-400 leading-relaxed">{description}</p>
-        </div>
-      </div>
-    </div>
   );
 }
 
@@ -322,11 +293,13 @@ function QuickLink({ label, href }) {
 
 function FocusCard({ title, desc, badge }) {
   return (
-    <div className="bg-zinc-900/50 border border-white/10 rounded-xl p-4 hover:border-white/30 transition-all duration-200">
-      <span className="inline-flex px-2 py-0.5 rounded-full bg-white/5 text-xs text-gray-300 mb-3 uppercase tracking-wide">
+    <div className="group bg-zinc-950/50 border border-zinc-700/40 rounded-xl p-5 transition-all duration-300">
+      <span className="inline-flex px-2 py-0.5 rounded-md bg-zinc-800 text-xs text-gray-300 mb-3 uppercase tracking-wide">
         {badge}
       </span>
-      <h3 className="text-white font-semibold mb-1">{title}</h3>
+      <h3 className="text-white font-semibold mb-2">
+        {title}
+      </h3>
       <p className="text-sm text-gray-400 leading-relaxed">{desc}</p>
     </div>
   );
@@ -334,9 +307,9 @@ function FocusCard({ title, desc, badge }) {
 
 function WorkflowItem({ title, desc }) {
   return (
-    <div className="bg-zinc-900/40 border border-white/5 rounded-lg p-4 hover:border-white/20 transition-all duration-200">
-      <h4 className="text-sm font-semibold text-white mb-1">{title}</h4>
-      <p className="text-xs text-gray-400">{desc}</p>
+    <div className="bg-zinc-950/40 border border-zinc-700/40 rounded-lg p-4 transition-all duration-300">
+      <h4 className="text-sm font-semibold text-gray-100 mb-1">{title}</h4>
+      <p className="text-xs text-gray-400 leading-snug">{desc}</p>
     </div>
   );
 }
