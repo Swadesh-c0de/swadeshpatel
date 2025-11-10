@@ -1,8 +1,9 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import LogoLoop from "@/components/LogoLoop";
 
-import { Terminal, Rocket, BookOpen, Zap, Link as LinkIcon, Target, Wrench, ExternalLink } from "lucide-react";
+import { Link as LinkIcon, Target, Wrench, ExternalLink } from "lucide-react";
 import { SiNextdotjs, SiJavascript, SiTypescript, SiExpress, SiPostman, SiC, SiCplusplus, SiYaml, SiKdeplasma } from "react-icons/si";
 import { FaGithub, FaReact, FaNodeJs, FaDocker, FaPython, FaHtml5, FaCss3Alt, FaMarkdown, FaJava, FaGitlab } from "react-icons/fa";
 import { FiLinkedin } from "react-icons/fi";
