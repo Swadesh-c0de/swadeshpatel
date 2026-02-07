@@ -226,7 +226,7 @@ export const LogoLoop = memo(
               'inline-flex items-center',
               'motion-reduce:transition-none',
               scaleOnHover &&
-                'transition-transform duration-300 ease-in-out group-hover/item:scale-120'
+              'transition-transform duration-300 ease-in-out group-hover/item:scale-120'
             )}
             aria-hidden={!!item.href && !item.ariaLabel}
           >
@@ -240,7 +240,7 @@ export const LogoLoop = memo(
               '[image-rendering:-webkit-optimize-contrast]',
               'motion-reduce:transition-none',
               scaleOnHover &&
-                'transition-transform duration-300 ease-in-out group-hover/item:scale-120'
+              'transition-transform duration-300 ease-in-out group-hover/item:scale-120'
             )}
             src={item.src}
             srcSet={item.srcSet}

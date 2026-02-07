@@ -10,7 +10,7 @@ const dockItems = [
   { name: "About", icon: User, href: "/about" },
   { name: "Projects", icon: FolderOpen, href: "/projects" },
   { name: "Contact", icon: Mail, href: "/contact" },
-  { name: "Extras", icon: Orbit, href: "/extras" },
+  { name: "Lab", icon: Orbit, href: "/lab" },
 ];
 
 export default function Dock() {
@@ -31,18 +31,16 @@ export default function Dock() {
               whileHover={{ y: -5 }}
               transition={{ type: "spring", stiffness: 300, damping: 15 }}
               className={`flex flex-col items-center text-xs transition-colors duration-300
-                ${
-                  active
-                    ? "text-gray-300"
-                    : "text-gray-400 hover:text-zinc-200"
+                ${active
+                  ? "text-gray-300"
+                  : "text-gray-400 hover:text-zinc-200"
                 }`}
             >
               <div
                 className={`p-3 rounded-xl transition-colors duration-300
-                  ${
-                    active
-                      ? "bg-zinc-800/70"
-                      : "hover:bg-zinc-800/50"
+                  ${active
+                    ? "bg-zinc-800/70"
+                    : "hover:bg-zinc-800/50"
                   }`}
               >
                 <Icon className="w-6 h-6" />
