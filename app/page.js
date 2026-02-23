@@ -52,7 +52,7 @@ export default function Home() {
 
           <div className="pt-4">
             <a
-              href="https://drive.google.com/file/d/1iA1a2yRGqoMa0aG10zK3KS81xiSW8Jnh/view?usp=sharing"
+              href="https://drive.google.com/file/d/1YKY1OS0nI0CNNRPDomaY21rF_xTjfWLq/view?usp=sharing"
               download
               className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-100 text-zinc-950 font-medium rounded-full hover:bg-white hover:scale-105 transition-all duration-300 shadow-lg shadow-white/10"
               target="_blank"
