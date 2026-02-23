@@ -5,18 +5,18 @@ import { FlaskConical, Gamepad2, Files, Music, Terminal, Cpu, Archive } from "lu
 
 export default function Extras() {
     const extras = [
-        {
-            title: "Playground",
-            desc: "Experimental UI components and micro-interactions.",
-            icon: <Gamepad2 className="w-6 h-6 text-purple-400" />,
-            status: "In Progress",
-        },
-        {
-            title: "Snippets",
-            desc: "Collection of useful code blocks and patterns.",
-            icon: <Files className="w-6 h-6 text-blue-400" />,
-            status: "Coming Soon",
-        },
+        // {
+        //     title: "Playground",
+        //     desc: "Experimental UI components and micro-interactions.",
+        //     icon: <Gamepad2 className="w-6 h-6 text-purple-400" />,
+        //     status: "In Progress",
+        // },
+        // {
+        //     title: "Snippets",
+        //     desc: "Collection of useful code blocks and patterns.",
+        //     icon: <Files className="w-6 h-6 text-blue-400" />,
+        //     status: "Coming Soon",
+        // },
         {
             title: "Dotfiles",
             desc: "My personal Arch Linux configuration files.",
@@ -24,16 +24,16 @@ export default function Extras() {
             status: "Available",
             link: "https://github.com/Swadesh-c0de/myArchLinuxConfiguration"
         },
-        {
-            title: "Wallpapers",
-            desc: "Curated list of aesthetic wallpapers.",
-            icon: <Archive className="w-6 h-6 text-yellow-400" />,
-            status: "Coming Soon",
-        }
+        // {
+        //     title: "Wallpapers",
+        //     desc: "Curated list of aesthetic wallpapers.",
+        //     icon: <Archive className="w-6 h-6 text-yellow-400" />,
+        //     status: "Coming Soon",
+        // }
     ];
 
     return (
-        <div className="w-full max-w-6xl px-4 sm:px-6 pt-32 pb-20 mx-auto min-h-screen">
+        <div className="w-full max-w-6xl px-4 sm:px-6 pt-32 pb-32 mx-auto min-h-screen">
 
             {/* HEADER */}
             <motion.div

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Home, User, FolderOpen, Mail, Orbit } from "lucide-react";
+import { Home, User, FolderOpen, Mail, FlaskConical } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -10,7 +10,7 @@ const dockItems = [
   { name: "About", icon: User, href: "/about" },
   { name: "Projects", icon: FolderOpen, href: "/projects" },
   { name: "Contact", icon: Mail, href: "/contact" },
-  { name: "Lab", icon: Orbit, href: "/lab" },
+  { name: "Lab", icon: FlaskConical, href: "/lab" },
 ];
 
 export default function Dock() {

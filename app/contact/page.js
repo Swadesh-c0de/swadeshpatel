@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export default function Contact() {
     return (
-        <div className="w-full max-w-4xl px-6 pt-32 pb-20 mx-auto min-h-screen flex flex-col justify-center items-center text-center">
+        <div className="w-full max-w-4xl px-6 pt-32 pb-32 mx-auto min-h-screen flex flex-col justify-center items-center text-center">
 
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -31,7 +31,7 @@ export default function Contact() {
                 className="w-full max-w-md space-y-4"
             >
                 <SocialCard icon={<FaGithub className="w-6 h-6" />} label="GitHub" handle="@Swadesh-c0de" href="https://github.com/Swadesh-c0de" />
-                <SocialCard icon={<FaLinkedin className="w-6 h-6" />} label="LinkedIn" handle="Swadesh Patel" href="https://in.linkedin.com/in/swadeshpatel/" />
+                <SocialCard icon={<FaLinkedin className="w-6 h-6" />} label="LinkedIn" handle="@SwadeshPatel" href="https://in.linkedin.com/in/swadeshpatel/" />
             </motion.div>
 
         </div>

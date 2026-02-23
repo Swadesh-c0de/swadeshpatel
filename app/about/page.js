@@ -5,7 +5,7 @@ import { Terminal, Cpu, Globe, Code2, Coffee, Zap, Download } from "lucide-react
 
 export default function AboutPage() {
   return (
-    <div className="w-full max-w-4xl px-6 pt-32 pb-20 mx-auto min-h-screen text-zinc-100">
+    <div className="w-full max-w-4xl px-6 pt-32 pb-32 mx-auto min-h-screen text-zinc-100">
 
       {/* HEADER */}
       <motion.div
