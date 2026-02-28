@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Terminal, Cpu, Globe, Code2, Coffee, Zap, Download } from "lucide-react";
+import { resumeUrl } from "@/config/constants";
 
 export default function AboutPage() {
   return (
@@ -20,7 +21,7 @@ export default function AboutPage() {
         <div className="flex items-center gap-6">
           <div className="h-1 w-24 bg-zinc-800 rounded-full" />
           <a
-            href="https://drive.google.com/file/d/1YKY1OS0nI0CNNRPDomaY21rF_xTjfWLq/view?usp=sharing"
+            href={resumeUrl}
             download
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-zinc-900/50 border border-zinc-800 rounded-full text-zinc-400 hover:text-white hover:bg-zinc-800 hover:border-zinc-700 transition-all group"
             target="_blank"

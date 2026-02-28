@@ -13,6 +13,7 @@ import { GrArchlinux } from "react-icons/gr";
 import { FcLinux } from "react-icons/fc";
 import { VscVscode } from "react-icons/vsc";
 import { BsLightningCharge } from "react-icons/bs";
+import { resumeUrl } from "@/config/constants";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -52,7 +53,7 @@ export default function Home() {
 
           <div className="pt-4">
             <a
-              href="https://drive.google.com/file/d/1YKY1OS0nI0CNNRPDomaY21rF_xTjfWLq/view?usp=sharing"
+              href={resumeUrl}
               download
               className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-100 text-zinc-950 font-medium rounded-full hover:bg-white hover:scale-105 transition-all duration-300 shadow-lg shadow-white/10"
               target="_blank"

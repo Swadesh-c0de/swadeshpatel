@@ -1,0 +1,1 @@
+export const resumeUrl = process.env.NEXT_PUBLIC_RESUME_URL || "";
