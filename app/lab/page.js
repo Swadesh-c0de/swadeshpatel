@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FlaskConical, Gamepad2, Files, Music, Terminal, Cpu, Archive } from "lucide-react";
+import { FlaskConical, Gamepad2, Files, Terminal, Archive } from "lucide-react";
 
 export default function Extras() {
     const extras = [

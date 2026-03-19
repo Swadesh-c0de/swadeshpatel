@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Terminal, Cpu, Globe, Code2, Coffee, Zap, Download } from "lucide-react";
+import { Terminal, Coffee, Zap, Download } from "lucide-react";
 import { resumeUrl } from "@/config/constants";
 
 export default function AboutPage() {

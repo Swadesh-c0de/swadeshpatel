@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, ArrowRight, Copy, Check } from "lucide-react";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { useState } from "react";
+import { ArrowRight } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Contact() {
     return (
