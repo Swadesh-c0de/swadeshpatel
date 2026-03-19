@@ -12,7 +12,7 @@ export default function Contact() {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.6 }}
                 className="mb-16"
             >
                 <h1 className="text-6xl sm:text-8xl font-black tracking-tighter mb-8 text-white leading-[0.9]">
@@ -27,7 +27,7 @@ export default function Contact() {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
+                transition={{ delay: 0.1, duration: 0.6 }}
                 className="w-full max-w-md space-y-4"
             >
                 <SocialCard icon={<FaGithub className="w-6 h-6" />} label="GitHub" handle="@Swadesh-c0de" href="https://github.com/Swadesh-c0de" />

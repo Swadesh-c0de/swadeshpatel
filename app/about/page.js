@@ -10,10 +10,10 @@ export default function AboutPage() {
 
       {/* HEADER */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="mb-20"
+        transition={{ duration: 0.4 }}
+        className="mb-16"
       >
         <h1 className="text-6xl sm:text-8xl font-black tracking-tighter mb-6 text-white leading-[0.9]">
           ABOUT<br />ME.

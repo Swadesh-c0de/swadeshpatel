@@ -1,5 +1,6 @@
 import "./globals.css";
 import Dock from "./components/Dock";
+import PageTransition from "./components/PageTransition";
 
 export const metadata = {
   title: "Swadesh Patel | Full Stack Developer",
@@ -41,7 +42,9 @@ export default function RootLayout({ children }) {
 
         {/* MAIN CONTENT */}
         <main className="relative z-10 w-full min-h-screen flex flex-col items-center">
-          {children}
+          <PageTransition>
+            {children}
+          </PageTransition>
         </main>
 
         <Dock />

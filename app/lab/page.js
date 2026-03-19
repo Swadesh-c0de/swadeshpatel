@@ -39,7 +39,7 @@ export default function Extras() {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.6 }}
                 className="mb-20 flex flex-col items-center text-center"
             >
                 <div className="mb-6 p-4 rounded-full bg-zinc-900/50 border border-zinc-800">

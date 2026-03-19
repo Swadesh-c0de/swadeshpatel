@@ -1,11 +1,20 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Github, Code2, Music, Terminal, Play, Radio, Mic2, MessageCircle, ShieldCheck, Zap, Globe } from "lucide-react";
+import { ArrowUpRight, Github, Music, Terminal, Play, Radio, Mic2, MessageCircle, ShieldCheck, Zap, Globe, Loader2 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 
 export default function Projects() {
+    const [loadIframe, setLoadIframe] = useState(false);
     const projects = [
+        {
+            title: "Kontacts",
+            desc: "A high-performance contact management application featuring fluid animations, sophisticated search, and a premium Glassmorphism UI.",
+            stack: ["Nextjs", "Framer Motion", "Tailwind CSS", "Context API"],
+            links: { github: "https://github.com/Swadesh-c0de/Kontacts", live: "https://kontacts.vercel.app" },
+            type: "Frontend"
+        },
         {
             title: "Contacts Management System Backend API",
             desc: "A robust Node.js/Express backend for contact management with JWT auth and MongoDB.",
@@ -27,9 +36,9 @@ export default function Projects() {
 
             {/* Header */}
             <motion.div
-                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+                initial={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.6 }}
                 className="text-center mb-16 sm:mb-24 w-full"
             >
                 <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter mb-6 text-white">SELECTED WORK</h1>
@@ -41,9 +50,9 @@ export default function Projects() {
 
             {/* HERO PROJECT: dCHAT */}
             <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                initial={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
                 className="w-full mb-16 sm:mb-24 relative group"
             >
 
@@ -94,13 +103,27 @@ export default function Projects() {
                                         <span className="text-[10px] text-zinc-500 font-mono">d-chatapp.vercel.app</span>
                                     </div>
                                 </div>
-                                <iframe
-                                    src="https://d-chatapp.vercel.app"
-                                    className="w-full h-full pt-8 scale-[0.85] origin-top md:scale-100"
-                                    title="dChat Live Demo"
-                                    allow="clipboard-write"
-                                    sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-                                ></iframe>
+                                <motion.div
+                                    className="w-full h-full"
+                                    onViewportEnter={() => setLoadIframe(true)}
+                                    viewport={{ once: true, margin: "200px" }}
+                                >
+                                    {loadIframe ? (
+                                        <iframe
+                                            src="https://d-chatapp.vercel.app"
+                                            className="w-full h-full pt-8 scale-[0.85] origin-top md:scale-100"
+                                            title="dChat Live Demo"
+                                            allow="clipboard-write"
+                                            sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+                                            loading="lazy"
+                                        ></iframe>
+                                    ) : (
+                                        <div className="w-full h-full flex flex-col items-center justify-center bg-zinc-950/50 pt-8">
+                                            <Loader2 className="w-8 h-8 text-zinc-800 animate-spin mb-4" />
+                                            <span className="text-zinc-600 text-xs font-mono">Loading Experience...</span>
+                                        </div>
+                                    )}
+                                </motion.div>
                                 <div className="absolute inset-0 bg-transparent pointer-events-none rounded-2xl ring-1 ring-inset ring-white/10" />
                             </div>
                         </div>
@@ -114,7 +137,7 @@ export default function Projects() {
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: "0px" }}
                 transition={{ duration: 0.8 }}
                 className="w-full mb-16 sm:mb-24 relative group"
             >
@@ -150,13 +173,8 @@ export default function Projects() {
                         </div>
                     </div>
 
-                    {/* Visual Side (Mockup - Ultra Clean) */}
                     <div className="bg-zinc-950/40 relative overflow-hidden flex items-center justify-center p-6 sm:p-10 order-1 lg:order-2 min-h-[400px] lg:h-auto">
-
-                        {/* Minimalist Player Widget */}
                         <div className="w-full max-w-sm bg-black/50 backdrop-blur-sm border border-zinc-800/60 rounded-2xl flex flex-col relative z-10 transition-transform hover:-translate-y-1 duration-500 overflow-hidden">
-
-                            {/* Header */}
                             <div className="px-5 py-4 border-b border-zinc-800/50 flex justify-between items-center bg-zinc-900/20">
                                 <span className="text-zinc-500 font-mono text-[10px] uppercase tracking-widest flex items-center gap-2">
                                     <Terminal className="w-3 h-3" />
@@ -166,24 +184,11 @@ export default function Projects() {
 
                             <div className="p-6 sm:p-8 flex-1 space-y-8">
 
-                                {/* Track Info - Clean Typography */}
                                 <div className="text-center space-y-1.5">
                                     <p className="text-white font-medium text-lg tracking-tight">Resonance</p>
                                     <p className="text-zinc-500 text-sm font-light">HOME</p>
                                 </div>
 
-                                {/* CSS-animated visualizer bars (Hardware Accelerated & Minimal) */}
-                                <style dangerouslySetInnerHTML={{
-                                    __html: `
-                                    @keyframes vbar-clean {
-                                        0% { transform: scaleY(0.15); opacity: 0.3; }
-                                        100% { transform: scaleY(var(--scale)); opacity: 1; }
-                                    }
-                                    .visualizer-clean {
-                                        animation: vbar-clean var(--dur) ease-in-out infinite alternate;
-                                        transform-origin: bottom;
-                                    }
-                                `}} />
                                 <div className="h-16 flex items-end justify-center gap-[3px] py-1">
                                     {[0.4, 0.7, 0.5, 0.9, 0.6, 1.0, 0.8, 0.5, 0.7, 0.4].map((val, i) => (
                                         <div
@@ -222,8 +227,6 @@ export default function Projects() {
                 </div>
             </motion.div>
 
-
-            {/* GRID FOR OTHER PROJECTS */}
             <h3 className="text-xl font-mono text-zinc-500 mb-8 self-start uppercase tracking-widest pl-2">Other Experiments</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
                 {projects.map((project, index) => (
@@ -243,40 +246,46 @@ function GlassProjectCard({ project, index }) {
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
             whileHover={{ y: -5 }}
-            className="group bg-zinc-900/20 border border-zinc-800/60 backdrop-blur-md rounded-2xl p-6 hover:bg-zinc-900/40 hover:border-zinc-700 transition-all duration-300"
+            className="group relative bg-zinc-900/10 border border-zinc-800/50 backdrop-blur-xl rounded-3xl overflow-hidden hover:border-zinc-700/50 transition-all duration-500"
         >
-            <div className="flex justify-between items-start mb-6">
-                <div className="p-3 bg-zinc-900 rounded-xl border border-zinc-800 text-zinc-300 group-hover:text-white group-hover:border-zinc-600 transition-colors">
-                    <Code2 className="w-6 h-6" />
+            {/* Header Section */}
+            <div className="px-7 pt-7 pb-4 relative z-10">
+                <div className="flex justify-between items-start mb-6">
+                    <div className="flex flex-col gap-1.5">
+                        <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-[0.4em] font-bold">{project.type}</span>
+                        <h4 className="text-2xl font-bold text-white tracking-tight leading-none group-hover:text-zinc-100 transition-colors">{project.title}</h4>
+                    </div>
+                    <div className="flex gap-2">
+                        {project.links.github && (
+                            <a href={project.links.github} target="_blank" className="text-zinc-500 hover:text-white transition-all p-2.5 bg-zinc-950/40 rounded-xl border border-zinc-800/50 hover:border-zinc-700">
+                                <Github className="w-4 h-4" />
+                            </a>
+                        )}
+                        {project.links.live && (
+                            <a href={project.links.live} target="_blank" className="text-zinc-500 hover:text-white transition-all p-2.5 bg-zinc-950/40 rounded-xl border border-zinc-800/50 hover:border-zinc-700">
+                                <ArrowUpRight className="w-4 h-4" />
+                            </a>
+                        )}
+                    </div>
                 </div>
-                <div className="flex gap-2">
-                    {project.links.github && (
-                        <a href={project.links.github} className="text-zinc-600 hover:text-white transition-colors">
-                            <Github className="w-5 h-5" />
-                        </a>
-                    )}
-                    {project.links.live && (
-                        <a href={project.links.live} className="text-zinc-600 hover:text-white transition-colors">
-                            <ArrowUpRight className="w-5 h-5" />
-                        </a>
-                    )}
-                </div>
+                <p className="text-zinc-400 text-[14px] leading-relaxed font-normal">
+                    {project.desc}
+                </p>
             </div>
 
-            <h4 className="text-xl font-bold text-zinc-200 mb-2 group-hover:text-white transition-colors">{project.title}</h4>
-            <p className="text-zinc-500 text-sm leading-relaxed mb-6 group-hover:text-zinc-400 transition-colors">
-                {project.desc}
-            </p>
-
-            <div className="flex flex-wrap gap-2 mt-auto">
-                {project.stack.map(tech => (
-                    <span key={tech} className="text-[10px] uppercase tracking-wider font-bold text-zinc-600 border border-zinc-800 px-2 py-1 rounded bg-zinc-950/30">
-                        {tech}
-                    </span>
-                ))}
+            {/* Stack Grid */}
+            <div className="px-7 pt-3 pb-7 relative z-10">
+                <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest block mb-3 font-bold">Tech Stack</span>
+                <div className="flex flex-wrap gap-2">
+                    {project.stack.map(tech => (
+                        <div key={tech} className="px-3 py-1.5 rounded-lg bg-zinc-950/30 border border-zinc-800/40 text-[10px] font-medium text-zinc-500 uppercase tracking-wider group-hover:border-zinc-700/40 group-hover:text-zinc-400 transition-all">
+                            {tech}
+                        </div>
+                    ))}
+                </div>
             </div>
         </motion.div>
-    );
+    )
 }
 
 function FeatureItem({ icon, label }) {
@@ -294,7 +303,7 @@ function HeroActionBtn({ href, icon, label, primary }) {
             href={href}
             target="_blank"
             rel="noopener"
-            className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 
+            className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300
           ${primary
                     ? "bg-white text-black hover:bg-zinc-200 shadow-lg shadow-white/5"
                     : "bg-zinc-900 text-zinc-400 border border-zinc-800 hover:text-white hover:border-zinc-700"}`}

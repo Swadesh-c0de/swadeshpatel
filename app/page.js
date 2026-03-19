@@ -37,9 +37,9 @@ export default function Home() {
       {/* HERO / INTRO */}
       <section className="w-full py-20 lg:py-32 flex flex-col items-center text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
           className="space-y-6"
         >
           <h1 className="text-6xl sm:text-8xl md:text-9xl font-black tracking-tighter text-white leading-[0.85]">
@@ -201,9 +201,9 @@ const techStack = [
   { title: "TypeScript", node: <SiTypescript className="w-full h-full text-zinc-300 hover:text-blue-500 mx-auto grayscale hover:grayscale-0 transition-all duration-400 opacity-60 hover:opacity-100" /> },
   { title: "Arch", node: <GrArchlinux className="w-full h-full text-zinc-300 hover:text-blue-400 mx-auto grayscale hover:grayscale-0 transition-all duration-400 opacity-60 hover:opacity-100" /> },
   { title: "Linux", node: <FcLinux className="w-full h-full text-zinc-300 hover:text-blue-400 mx-auto grayscale hover:grayscale-0 transition-all duration-400 opacity-60 hover:opacity-100" /> },
-  { title: "Debian", node: <DiDebian className="w-full h-full text-zinc-3000 hover:text-red-800 mx-auto grayscale hover:grayscale-0 transition-all duration-400 opacity-60 hover:opacity-100" /> },
+  { title: "Debian", node: <DiDebian className="w-full h-full text-zinc-300 hover:text-red-800 mx-auto grayscale hover:grayscale-0 transition-all duration-400 opacity-60 hover:opacity-100" /> },
   { title: "KDE Plasma", node: <SiKdeplasma className="w-full h-full text-zinc-300 hover:text-blue-400 mx-auto grayscale hover:grayscale-0 transition-all duration-400 opacity-60 hover:opacity-100" /> },
-  { title: "Vim", node: <DiVim className="w-full h-full text-zinc-300 hover:text-white mx-auto grayscale hover:grayscale-0 transition-all duration-400 opacity-60 hover:backdrop-opacity-100" />},
+  { title: "Vim", node: <DiVim className="w-full h-full text-zinc-300 hover:text-white mx-auto grayscale hover:grayscale-0 transition-all duration-400 opacity-60 hover:backdrop-opacity-100" /> },
   { title: "Docker", node: <FaDocker className="w-full h-full text-zinc-300 hover:text-blue-300 mx-auto grayscale hover:grayscale-0 transition-all duration-400 opacity-60 hover:opacity-100" /> },
   { title: "Python", node: <FaPython className="w-full h-full text-zinc-300 hover:text-blue-400 mx-auto grayscale hover:grayscale-0 transition-all duration-400 opacity-60 hover:opacity-100" /> },
   { title: "Markdown", node: <FaMarkdown className="w-full h-full text-zinc-300 hover:text-blue-400 mx-auto grayscale hover:grayscale-0 transition-all duration-400 opacity-60 hover:opacity-100" /> },
