@@ -1,10 +1,30 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Terminal, Coffee, Zap, Download } from "lucide-react";
 import { resumeUrl } from "@/config/constants";
 
+// Please update this to your exact Date of Birth (YYYY-MM-DD)
+const DOB = "2005-01-10";
+
+function calculateAge(birthDateString) {
+  const today = new Date();
+  const birthDate = new Date(birthDateString);
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+  return age;
+}
+
 export default function AboutPage() {
+  const [age, setAge] = useState(21);
+
+  useEffect(() => {
+    setAge(calculateAge(DOB));
+  }, []);
   return (
     <div className="w-full max-w-4xl px-6 pt-32 pb-32 mx-auto min-h-screen text-zinc-100">
 
@@ -51,10 +71,13 @@ export default function AboutPage() {
 
           <div className="space-y-6 text-lg sm:text-xl font-light leading-relaxed text-zinc-300">
             <p>
-              I am a 21-year-old Computer Science student with a deep-seated passion for Linux, Robotics, and AI. My approach to technology is driven by a simple question: <span className="italic text-zinc-100 font-serif">"How does this work?"</span>
+              I am a {age}-year-old Computer Science student with a deep-seated passion for Linux, Robotics, and AI. My approach to technology is driven by a simple question: <span className="italic text-zinc-100 font-serif">"How does this work?"</span> — not just in the software layers, but all the way down to the physical silicon.
             </p>
             <p>
-              Whether I’m diving into the complex physics of the universe, exploring the inner workings of an operating system, or capturing nature through my camera lens, I am always seeking to understand the systems that govern our world. My goal is to bridge the gap between theory and reality by building technology that feels seamless, efficient, and powerful.
+              Whether I’m diving into the complex physics of the universe, exploring the inner workings of an operating system, or tinkering with physical system hardware, I am always seeking to understand the systems that govern our world.
+            </p>
+            <p>
+              I have a growing fascination with hardware architecture and electronics. While I’m still early in my journey of learning circuit design and microcontrollers, I love hands-on experimentation, building physical setups, and exploring how code interacts with the physical world. My ultimate goal is to bridge the gap between high-level logic and hardware, creating technology that is seamless, efficient, and deeply integrated.
             </p>
           </div>
         </div>

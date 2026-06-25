@@ -42,7 +42,7 @@ export default function Home() {
           transition={{ duration: 0.5 }}
           className="space-y-6"
         >
-          <h1 className="text-6xl sm:text-8xl md:text-9xl font-black tracking-tighter text-white leading-[0.85]">
+          <h1 className="text-6xl sm:text-8xl md:text-9xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white via-zinc-200 to-zinc-500 leading-[0.85] pb-4">
             SWADESH<br />PATEL
           </h1>
 
