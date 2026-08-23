@@ -1,10 +1,13 @@
 "use client";
 
+import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import LogoLoop from "@/components/LogoLoop";
-import { Target, MapPin, Mail, LayoutGrid, Download } from "lucide-react";
-import { SiNextdotjs, SiJavascript, SiTypescript, SiExpress, SiPostman, SiC, SiCplusplus, SiYaml, SiKdeplasma } from "react-icons/si";
+import { MapPin, Mail, Download, ArrowUpRight, Terminal } from "lucide-react";
+import { SiNextdotjs, SiJavascript, SiTypescript, SiExpress, SiPostman, SiC, SiCplusplus, SiYaml, SiKdeplasma, SiGo } from "react-icons/si";
 import { FaGithub, FaReact, FaNodeJs, FaDocker, FaPython, FaHtml5, FaCss3Alt, FaMarkdown, FaJava, FaGitlab } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { FiLinkedin } from "react-icons/fi";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { BiLogoMongodb } from "react-icons/bi";
@@ -14,6 +17,8 @@ import { FcLinux } from "react-icons/fc";
 import { VscVscode } from "react-icons/vsc";
 import { BsLightningCharge } from "react-icons/bs";
 import { resumeUrl } from "@/config/constants";
+import { featuredProjects } from "@/data/projects";
+import { socialLinks, profileData } from "@/data/socials";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -48,7 +53,7 @@ export default function Home() {
 
           <p className="max-w-xl mx-auto text-lg text-zinc-500 font-light">
             <span className="text-zinc-200 font-medium"> Full Stack Developer</span> and <span className="text-zinc-200 font-medium">Arch Linux</span> enthusiast building high-performace web applications with
-            <span className="text-zinc-200 font-medium"> Next.js</span> and <span className="text-zinc-200 font-medium">Express.js</span>.
+            <span className="text-zinc-200 font-medium"> Next.js</span>, <span className="text-zinc-200 font-medium">Express.js</span> and <span className="text-zinc-200 font-medium">Go</span>.
           </p>
 
           <div className="pt-4">
@@ -70,82 +75,64 @@ export default function Home() {
         variants={staggerGrid}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "-40px" }}
         className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[minmax(180px,auto)]"
       >
 
         {/* BIO CARD (Large) */}
-        <BentoCard className="md:col-span-2 lg:col-span-2 row-span-1 flex flex-col justify-center p-8 bg-zinc-900/20">
-          <h3 className="text-2xl font-bold text-white mb-2">Full-Stack Engineer</h3>
-          <p className="text-zinc-400 leading-relaxed">
-            Specializing in building scalable web applications. I merge academic rigor with freelance pragmatism to deliver clean, maintainable code.
-          </p>
+        <BentoCard className="md:col-span-2 lg:col-span-2 row-span-1 flex flex-col justify-between p-6 sm:p-8 bg-zinc-950/40 border-zinc-800/40 hover:border-zinc-700/60 transition-colors">
+          <div>
+            <div className="flex items-center justify-between mb-4">
+              <span className="text-xs font-mono uppercase tracking-[0.2em] text-zinc-500 font-medium">Profile</span>
+              <span className="text-xs font-mono text-zinc-600">Overview</span>
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-2 tracking-tight">Full-Stack Engineer</h3>
+            <p className="text-zinc-400 leading-relaxed font-light text-sm sm:text-base">
+              {profileData.bio}
+            </p>
+          </div>
         </BentoCard>
 
         {/* SOCIALS */}
-        <BentoCard className="md:col-span-1 bg-zinc-900/40 flex items-center justify-center gap-4">
-          <SocialLink icon={<FaGithub className="w-8 h-8" />} href="https://github.com/Swadesh-c0de/" label="GitHub" />
-          <SocialLink icon={<FiLinkedin className="w-8 h-8" />} href="https://in.linkedin.com/in/swadeshpatel/" label="LinkedIn" />
-          <SocialLink icon={<Mail className="w-8 h-8" />} href="/contact" label="Contact" />
+        <BentoCard className="md:col-span-1 bg-zinc-950/40 border-zinc-800/40 hover:border-zinc-700/60 p-6 flex flex-col justify-between transition-colors">
+          <div className="flex items-center justify-between mb-3">
+            <span className="text-xs font-mono uppercase tracking-[0.2em] text-zinc-500 font-medium">Connect</span>
+          </div>
+          <div className="flex items-center justify-center gap-3.5 my-auto">
+            <SocialLink icon={<FaGithub className="w-5 h-5" />} href={socialLinks.github} label="GitHub" />
+            <SocialLink icon={<FaXTwitter className="w-5 h-5" />} href={socialLinks.x} label="X (Twitter)" />
+            <SocialLink icon={<FiLinkedin className="w-5 h-5" />} href={socialLinks.linkedin} label="LinkedIn" />
+          </div>
         </BentoCard>
 
         {/* LOCATION / STATUS */}
-        <BentoCard className="hidden lg:flex flex-col items-center justify-center bg-zinc-900/10">
-          <MapPin className="w-8 h-8 text-zinc-600 mb-2" />
-          <div className="text-center">
-            <span className="text-zinc-200 font-bold block">India, IN</span>
-            <span className="text-zinc-500 text-xs font-mono">UTC+05:30</span>
+        <BentoCard className="hidden lg:flex flex-col justify-between p-6 bg-zinc-950/40 border-zinc-800/40 hover:border-zinc-700/60 transition-colors">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs font-mono uppercase tracking-[0.2em] text-zinc-500 font-medium">Location</span>
+            <span className="text-[10px] font-mono text-zinc-600">{profileData.timezone}</span>
+          </div>
+          <div className="text-center my-auto flex flex-col items-center">
+            <MapPin className="w-6 h-6 text-zinc-500 mb-2" />
+            <span className="text-zinc-200 font-bold block text-sm tracking-tight">{profileData.location}</span>
           </div>
         </BentoCard>
 
-
-        {/* TECH STACK (Wide) */}
-        <BentoCard className="md:col-span-3 lg:col-span-4 overflow-hidden relative min-h-40 flex flex-col justify-center bg-zinc-950/50">
-          <div className="absolute top-4 left-6 flex items-center gap-2">
-            <BsLightningCharge className="text-zinc-500 w-4 h-4" />
-            <span className="text-xs uppercase tracking-widest text-zinc-600 font-bold">Tech Stack</span>
+        {/* TECH STACK (Wide Marquee) */}
+        <BentoCard className="md:col-span-3 lg:col-span-4 overflow-hidden relative min-h-40 flex flex-col justify-center bg-zinc-950/40 border-zinc-800/40 hover:border-zinc-700/60 p-6 sm:p-8">
+          <div className="absolute top-5 left-6 sm:left-8 flex items-center gap-2">
+            <BsLightningCharge className="text-zinc-500 w-3.5 h-3.5" />
+            <span className="text-xs font-mono uppercase tracking-[0.2em] text-zinc-500 font-medium">Tech Stack</span>
           </div>
-          <div className="mask-gradient w-full">
+          <div className="mask-gradient w-full pt-6">
             <LogoLoop logos={[...techStack]} speed={40} direction="left" logoHeight={40} gap={50} pauseOnHover={true} />
           </div>
         </BentoCard>
 
+        {/* WHITE DESIGN LINE ART PC CARD (2 Columns - Left Side) */}
+        <PCArtCard />
 
-        {/* FOCUS: Architecture */}
-        <BentoCard className="md:col-span-1 bg-zinc-900/20 p-6 flex flex-col justify-between">
-          <LayoutGrid className="w-8 h-8 text-zinc-700 mb-4" />
-          <div>
-            <h4 className="text-lg font-bold text-zinc-200">Architecture</h4>
-            <p className="text-xs text-zinc-500 mt-1">Modular & Scalable Systems</p>
-          </div>
-        </BentoCard>
-
-        {/* FOCUS: Linux */}
-        <BentoCard className="md:col-span-1 bg-zinc-900/20 p-6 flex flex-col justify-between">
-          <GrArchlinux className="w-8 h-8 text-zinc-700 mb-4" />
-          <div>
-            <h4 className="text-lg font-bold text-zinc-200">Linux Ricing</h4>
-            <p className="text-xs text-zinc-500 mt-1">KDE, Hyprland & Terminal Workflows</p>
-          </div>
-        </BentoCard>
-
-        {/* LINKS */}
-        <BentoCard className="md:col-span-1 lg:col-span-2 bg-white/5 p-6 flex flex-col justify-center items-center text-center group cursor-pointer hover:bg-white/10 transition-colors">
-          <a href="/projects" className="w-full h-full flex flex-col items-center justify-center">
-            <Target className="w-10 h-10 text-white mb-3 group-hover:scale-110 transition-transform" />
-            <h3 className="text-xl font-bold text-white">View Projects</h3>
-            <p className="text-sm text-zinc-500">Explore my latest work</p>
-          </a>
-        </BentoCard>
-
-
-        {/* WORKFLOW ITEMS (Small Grid within Grid) */}
-        <div className="md:col-span-3 lg:col-span-4 grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <MiniCard title="Arch Linux" icon={<GrArchlinux className="w-full h-full text-zinc-300 hover:text-blue-400 mx-auto grayscale hover:grayscale-0 transition-all duration-400 opacity-60 hover:opacity-100" />} />
-          <MiniCard title="VS Code" icon={<VscVscode className="w-full h-full text-zinc-300 hover:text-blue-400 mx-auto grayscale hover:grayscale-0 transition-all duration-400 opacity-60 hover:opacity-100" />} />
-          <MiniCard title="NextJS" icon={<SiNextdotjs className="w-full h-full text-zinc-300 hover:text-zinc-300 mx-auto grayscale hover:grayscale-0 transition-all duration-400 opacity-60 hover:opacity-100" />} />
-          <MiniCard title="ExpressJS" icon={<SiExpress className="w-full h-full text-zinc-300 hover:text-zinc-300 mx-auto grayscale hover:grayscale-0 transition-all duration-400 opacity-60 hover:opacity-100" />} />
-        </div>
+        {/* FEATURED PROJECTS SPOTLIGHT (2 Columns - Right Side) */}
+        <FeaturedProjectsCard />
 
       </motion.div>
 
@@ -154,26 +141,106 @@ export default function Home() {
 }
 
 function BentoCard({ children, className = "" }) {
+  const hasBorder = !className.includes("border-none") && !className.includes("border-0");
   return (
     <motion.div
       variants={fadeInUp}
-      className={`rounded-3xl border border-zinc-800/50 backdrop-blur-sm overflow-hidden ${className}`}
+      className={`rounded-3xl ${hasBorder ? "border border-zinc-800/50" : ""} backdrop-blur-sm overflow-hidden ${className}`}
     >
       {children}
     </motion.div>
   );
 }
 
-function MiniCard({ title, icon }) {
+function FeaturedProjectsCard() {
+  const featured = featuredProjects;
+
   return (
-    <motion.div
-      variants={fadeInUp}
-      className="bg-black border border-zinc-800 rounded-2xl p-4 flex items-center gap-3 hover:border-zinc-600 transition-colors"
-    >
-      <div className="text-zinc-500 text-xl">{icon}</div>
-      <span className="text-zinc-300 font-medium text-sm">{title}</span>
-    </motion.div>
-  )
+    <BentoCard className="h-fit md:col-span-3 lg:col-span-2 p-6 sm:p-8 flex flex-col justify-between bg-zinc-950/40 border-zinc-800/40 hover:border-zinc-700/60 transition-all duration-500">
+      <div>
+        <div className="flex items-center justify-between mb-5">
+          <span className="text-xs font-mono uppercase tracking-[0.2em] text-zinc-500 font-medium">Selected Work</span>
+          <a
+            href="/projects"
+            className="text-xs font-mono text-zinc-500 hover:text-zinc-200 flex items-center gap-1 transition-colors group"
+          >
+            All Work <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </a>
+        </div>
+
+        <div className="divide-y divide-zinc-900/80">
+          {featured.map((proj, idx) => (
+            <div
+              key={idx}
+              className="py-3.5 first:pt-0 last:pb-0 flex items-center justify-between gap-4 group/row transition-all duration-300"
+            >
+              <div className="min-w-0">
+                <div className="flex items-baseline gap-2.5">
+                  <h4 className="text-base font-medium text-zinc-200 group-hover/row:text-white transition-colors tracking-tight">
+                    {proj.title}
+                  </h4>
+                  <span className="text-[10px] font-mono text-zinc-600">
+                    {proj.tag}
+                  </span>
+                </div>
+                <p className="text-xs text-zinc-500 font-light truncate mt-0.5">
+                  {proj.desc}
+                </p>
+              </div>
+
+              <div className="flex items-center gap-2 shrink-0 opacity-50 group-hover/row:opacity-100 transition-opacity">
+                {proj.github && (
+                  <a
+                    href={proj.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-1.5 text-zinc-500 hover:text-white transition-colors"
+                    title="Source Code"
+                  >
+                    <FaGithub className="w-3.5 h-3.5" />
+                  </a>
+                )}
+                {proj.live && (
+                  <a
+                    href={proj.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-1.5 text-zinc-500 hover:text-white transition-colors"
+                    title="Live Preview"
+                  >
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="pt-4 mt-4 border-t border-zinc-900/80 flex items-center justify-between text-[11px] font-mono text-zinc-600">
+        <span>Next.js · Express.js · Go</span>
+      </div>
+    </BentoCard>
+  );
+}
+
+function PCArtCard() {
+  return (
+    <BentoCard className="h-fit md:col-span-3 lg:col-span-2 p-6 sm:p-8 flex flex-col justify-between transition-all duration-500 group border-0 border-none bg-transparent">
+      <div>
+        <div className="relative overflow-visible w-full h-full flex items-center justify-center">
+          <Image
+            src="/images/pc-isometric-white.png"
+            alt="Minimalist PC Line Art"
+            width={600}
+            height={375}
+            priority
+            className="w-full h-full object-contain opacity-80 transition-all duration-700"
+          />
+        </div>
+      </div>
+    </BentoCard>
+  );
 }
 
 function SocialLink({ icon, href, label, download }) {
@@ -181,7 +248,7 @@ function SocialLink({ icon, href, label, download }) {
     <a href={href} target={href === "/contact" || download ? "_self" : "_blank"} download={download} className="p-3 rounded-full bg-white/5 text-zinc-400 hover:bg-white hover:text-black transition-all duration-300" title={label}>
       {icon}
     </a>
-  )
+  );
 }
 
 
@@ -199,6 +266,7 @@ const techStack = [
   { title: "MongoDB", node: <BiLogoMongodb className="w-full h-full text-zinc-300 hover:text-green-500 mx-auto grayscale hover:grayscale-0 transition-all duration-400 opacity-60 hover:opacity-100" /> },
   { title: "SQL", node: <DiMysql className="w-full h-full text-zinc-300 hover:text-blue-400 mx-auto grayscale hover:grayscale-0 transition-all duration-400 opacity-60 hover:opacity-100" /> },
   { title: "TypeScript", node: <SiTypescript className="w-full h-full text-zinc-300 hover:text-blue-500 mx-auto grayscale hover:grayscale-0 transition-all duration-400 opacity-60 hover:opacity-100" /> },
+  { title: "Go", node: <SiGo className="w-full h-full text-zinc-300 hover:text-cyan-400 mx-auto grayscale hover:grayscale-0 transition-all duration-400 opacity-60 hover:opacity-100" /> },
   { title: "Arch", node: <GrArchlinux className="w-full h-full text-zinc-300 hover:text-blue-400 mx-auto grayscale hover:grayscale-0 transition-all duration-400 opacity-60 hover:opacity-100" /> },
   { title: "Linux", node: <FcLinux className="w-full h-full text-zinc-300 hover:text-blue-400 mx-auto grayscale hover:grayscale-0 transition-all duration-400 opacity-60 hover:opacity-100" /> },
   { title: "Debian", node: <DiDebian className="w-full h-full text-zinc-300 hover:text-red-800 mx-auto grayscale hover:grayscale-0 transition-all duration-400 opacity-60 hover:opacity-100" /> },

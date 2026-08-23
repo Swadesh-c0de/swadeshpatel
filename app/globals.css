@@ -8,13 +8,13 @@
 html,
 body {
   @apply bg-black text-white;
-  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  font-family: var(--font-sans), 'Inter', -apple-system, system-ui, sans-serif;
   overflow-x: hidden;
 }
 
-/* Custom Selection Color */
+/* Monochromatic Selection Color */
 ::selection {
-  @apply bg-emerald-500/30 text-emerald-100;
+  @apply bg-white/20 text-white;
 }
 
 /* Scrollbar Styling */
