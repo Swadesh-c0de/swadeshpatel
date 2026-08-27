@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
@@ -30,21 +31,36 @@ export default function ContactClient() {
     ];
 
     return (
-        <div className="w-full max-w-4xl px-4 sm:px-6 pt-24 sm:pt-32 pb-32 mx-auto min-h-screen flex flex-col justify-center text-zinc-100">
+        <div className="w-full max-w-5xl px-4 sm:px-6 pt-24 sm:pt-32 pb-32 mx-auto min-h-screen flex flex-col justify-center text-zinc-100">
 
             {/* HEADER */}
             <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="mb-16 sm:mb-20 space-y-4"
+                className="mb-16 sm:mb-20 flex flex-col md:flex-row md:items-center justify-between gap-8 sm:gap-12"
             >
-                <h1 className="text-6xl sm:text-7xl md:text-8xl font-black tracking-tighter text-white leading-[0.88]">
-                    LET'S<br />CONNECT.
-                </h1>
-                <p className="text-zinc-500 text-base sm:text-lg max-w-lg font-light leading-relaxed">
-                    Interested in collaborating or discussing systems, Linux, and web architecture? Reach out across platforms.
-                </p>
+                <div className="space-y-4 max-w-xl">
+                    <h1 className="text-6xl sm:text-7xl md:text-8xl font-black tracking-tighter text-white leading-[0.88]">
+                        LET'S<br />CONNECT.
+                    </h1>
+                    <p className="text-zinc-500 text-base sm:text-lg max-w-lg font-light leading-relaxed">
+                        Interested in collaborating or discussing systems, Linux, and web architecture? Reach out across platforms.
+                    </p>
+                </div>
+
+                {/* TOP RIGHT WHITE DESIGN LINE ART */}
+                <div className="w-full md:w-80 lg:w-96 aspect-[16/10] relative overflow-visible bg-black group shrink-0">
+                    <Image
+                        src="/images/satellite-comm-white.png"
+                        alt="Orbital Communication Satellite Line Art"
+                        width={400}
+                        height={250}
+                        priority
+                        className="w-full h-full opacity-80 transition-all duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                </div>
             </motion.div>
 
             {/* CHANNELS GRID (3 Columns) */}

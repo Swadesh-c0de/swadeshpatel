@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <div className="w-full max-w-[1400px] px-4 sm:px-6 pb-32 flex flex-col items-center">
 
-      {/* HERO / INTRO */}
+      {/* HERO */}
       <section className="w-full py-20 lg:py-32 flex flex-col items-center text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

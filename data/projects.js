@@ -26,14 +26,14 @@ export const allProjects = [
     title: "Rubric",
     desc: "A minimalist academic term scheduler, daily attendance logger, and journal memo manager with relational database synchronization.",
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Supabase", "Tailwind CSS"],
-    links: { github: "https://github.com/Swadesh-c0de/rubric", live: null },
+    links: { github: "https://github.com/Swadesh-c0de/rubric", live: "https://rubric-core.vercel.app" },
     type: "Full-Stack"
   },
   {
     title: "GitNode",
     desc: "Interactive visualizer engine to explore GitHub repository architecture, dependency graphs, and project organization at a glance.",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "GitHub API"],
-    links: { github: "https://github.com/Swadesh-c0de/gitnode", live: null },
+    links: { github: "https://github.com/Swadesh-c0de/gitnode", live: "https://git-node.vercel.app" },
     type: "Dev Tool"
   },
   {
