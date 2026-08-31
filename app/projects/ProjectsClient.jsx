@@ -9,6 +9,7 @@ import { allProjects } from "@/data/projects";
 
 export default function ProjectsClient() {
     const [loadIframe, setLoadIframe] = useState(false);
+    const [iframeLoaded, setIframeLoaded] = useState(false);
     const projects = allProjects;
 
     return (
@@ -75,37 +76,64 @@ export default function ProjectsClient() {
                     </div>
 
                     {/* Visual Side (Live Iframe) */}
-                    <div className="relative overflow-hidden flex items-center justify-center order-1 lg:order-2 h-80 sm:h-96 lg:h-auto min-h-[360px]">
-                        <div className="w-full h-full p-3 sm:p-4 opacity-85 hover:opacity-100 transition-opacity duration-300">
-                            <div className="w-full h-full border border-zinc-800/60 rounded-2xl overflow-hidden shadow-2xl relative bg-black">
-                                {/* Browser Toolbar Mock */}
-                                <div className="h-8 bg-zinc-900/90 border-b border-zinc-800/80 flex items-center px-3.5 gap-2 w-full absolute top-0 z-10">
-                                    <div className="mx-auto px-2.5 py-0.5 bg-zinc-950 rounded-full border border-zinc-800/80 flex items-center justify-center">
-                                        <span className="text-[10px] text-zinc-500 font-mono">d-chatapp.vercel.app</span>
-                                    </div>
+                    <div className="relative overflow-hidden flex items-center justify-center p-4 sm:p-8 lg:p-10 order-1 lg:order-2 min-h-[360px] lg:h-auto w-full">
+                        <div className="w-full max-w-[320px] sm:max-w-sm lg:max-w-sm h-[360px] sm:h-[400px] bg-black/60 backdrop-blur-sm border border-zinc-800/60 rounded-2xl overflow-hidden shadow-2xl relative flex flex-col transition-transform hover:-translate-y-0.5 duration-300">
+                            {/* Browser Toolbar Mock */}
+                            <div className="h-8 bg-zinc-900/90 border-b border-zinc-800/80 flex items-center justify-between px-3.5 w-full shrink-0 z-10 select-none">
+                                <div className="flex items-center gap-1.5">
+                                    <span className="w-2 h-2 rounded-full bg-zinc-700/60" />
+                                    <span className="w-2 h-2 rounded-full bg-zinc-700/60" />
+                                    <span className="w-2 h-2 rounded-full bg-zinc-700/60" />
                                 </div>
-                                <motion.div
-                                    className="w-full h-full"
-                                    onViewportEnter={() => setLoadIframe(true)}
-                                    viewport={{ once: true, margin: "200px" }}
+                                <a
+                                    href="https://d-chatapp.vercel.app"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="px-2.5 py-0.5 bg-zinc-950 rounded-full border border-zinc-800/80 flex items-center gap-1.5 hover:border-zinc-700 transition-colors group/url"
+                                    title="Open d-chatapp.vercel.app"
                                 >
-                                    {loadIframe ? (
+                                    <span className="text-[10px] text-zinc-400 group-hover/url:text-zinc-200 font-mono">d-chatapp.vercel.app</span>
+                                </a>
+                                <a
+                                    href="https://d-chatapp.vercel.app"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-zinc-500 hover:text-zinc-300 transition-colors p-0.5 rounded"
+                                    title="Open in new tab"
+                                >
+                                    <ArrowUpRight className="w-3 h-3" />
+                                </a>
+                            </div>
+                            <motion.div
+                                className="w-full flex-1 relative bg-black overflow-hidden"
+                                onViewportEnter={() => setLoadIframe(true)}
+                                viewport={{ once: true, margin: "200px" }}
+                            >
+                                {loadIframe ? (
+                                    <>
+                                        {!iframeLoaded && (
+                                            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-zinc-950/70 backdrop-blur-xs">
+                                                <Loader2 className="w-5 h-5 text-zinc-600 animate-spin mb-2" />
+                                                <span className="text-zinc-500 text-[11px] font-mono">Loading Preview...</span>
+                                            </div>
+                                        )}
                                         <iframe
                                             src="https://d-chatapp.vercel.app"
-                                            className="w-full h-full pt-8 scale-[0.9] origin-top md:scale-100"
+                                            className={`w-full h-full border-0 transition-opacity duration-300 ${iframeLoaded ? "opacity-100" : "opacity-0"}`}
                                             title="dChat Live Demo"
                                             allow="clipboard-write"
                                             sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
                                             loading="lazy"
-                                        ></iframe>
-                                    ) : (
-                                        <div className="w-full h-full flex flex-col items-center justify-center bg-zinc-950/50 pt-8">
-                                            <Loader2 className="w-6 h-6 text-zinc-700 animate-spin mb-3" />
-                                            <span className="text-zinc-600 text-xs font-mono">Loading Demo...</span>
-                                        </div>
-                                    )}
-                                </motion.div>
-                            </div>
+                                            onLoad={() => setIframeLoaded(true)}
+                                        />
+                                    </>
+                                ) : (
+                                    <div className="w-full h-full flex flex-col items-center justify-center bg-zinc-950/50">
+                                        <Loader2 className="w-5 h-5 text-zinc-700 animate-spin mb-2" />
+                                        <span className="text-zinc-600 text-[11px] font-mono">Initializing Demo...</span>
+                                    </div>
+                                )}
+                            </motion.div>
                         </div>
                     </div>
 
@@ -154,7 +182,7 @@ export default function ProjectsClient() {
                     </div>
 
                     {/* Visual Side (TUI Player Mock) */}
-                    <div className="relative overflow-hidden flex items-center justify-center p-6 sm:p-10 order-1 lg:order-2 min-h-[360px] lg:h-auto">
+                    <div className="relative overflow-hidden flex items-center justify-center p-4 sm:p-8 lg:p-10 order-1 lg:order-2 min-h-[360px] lg:h-auto">
                         <div className="w-full max-w-sm bg-black/60 backdrop-blur-sm border border-zinc-800/50 rounded-2xl flex flex-col relative z-10 transition-transform hover:-translate-y-0.5 duration-300 overflow-hidden">
                             <div className="px-4 py-3 border-b border-zinc-800/50 flex justify-between items-center bg-zinc-900/30">
                                 <span className="text-zinc-500 font-mono text-[10px] uppercase tracking-widest flex items-center gap-2">
