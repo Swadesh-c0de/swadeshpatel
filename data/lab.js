@@ -6,9 +6,9 @@ export const labItems = [
     link: "https://github.com/Swadesh-c0de/myArchLinuxConfiguration"
   },
   {
-    title: "Vibe-Fi Audio TUI",
-    desc: "Terminal audio player with interactive visualizer, YouTube audio stream caching, and responsive ncurses terminal UI.",
-    tag: "C++ · TUI · Audio",
-    link: "https://github.com/Swadesh-c0de/vibe-fi"
+    title: "Vibe-Fi Audio TUI (Go)",
+    desc: "Terminal audio player and visualizer engine built with Charm Bubble Tea, libmpv CGO bindings, live spectrum analysis, and MPRIS integration.",
+    tag: "Go · TUI · libmpv",
+    link: "https://github.com/swadesh-c0de/vibe-fi-go"
   }
 ];

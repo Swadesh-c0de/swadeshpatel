@@ -73,7 +73,7 @@ A minimalist, high-performance developer portfolio and digital workspace enginee
 
 - **[Rubric](https://github.com/Swadesh-c0de/rubric)**: Minimalist academic term scheduler, daily attendance logger, and journal memo manager. *(Next.js, TypeScript, PostgreSQL, Prisma)*
 - **[dChat](https://d-chatapp.vercel.app)**: End-to-end encrypted decentralized messaging protocol on XMTP. *(Web3, XMTP, Next.js)*
-- **[Vibe-Fi](https://github.com/Swadesh-c0de/vibe-fi)**: Terminal audio player (TUI) with real-time visualizer & YouTube search. *(C++, TUI)*
+- **[Vibe-Fi](https://vibe-fi.vercel.app)**: Modern Go-powered terminal audio player (TUI) with real-time visualizer, YouTube streaming, and web documentation portal. *([Go CLI Engine](https://github.com/swadesh-c0de/vibe-fi-go), [Web Docs](https://github.com/Swadesh-c0de/vibe-fi-web))*
 - **[GitNode](https://github.com/Swadesh-c0de/gitnode)**: Interactive visualizer engine to explore GitHub repository architectures. *(Next.js, TypeScript)*
 - **[Kontacts](https://kontacts.vercel.app)**: Contact directory application with fluid micro-interactions and glassmorphic UI. *(Next.js, Framer Motion)*
 - **[Arch Linux Setup](https://github.com/Swadesh-c0de/myArchLinuxConfiguration)**: Automated bootstrapping and dotfiles for fresh Arch Linux setups. *(Bash, Zsh, Kitty)*

@@ -153,30 +153,41 @@ export default function ProjectsClient() {
 
                     {/* Content Side */}
                     <div className="p-7 sm:p-10 lg:p-12 flex flex-col justify-center order-2 lg:order-1">
-                        <div className="flex items-center gap-2.5 mb-5">
-                            <span className="px-2.5 py-1 rounded-md bg-zinc-900/60 border border-zinc-800/60 text-zinc-400 text-[11px] font-mono">C++</span>
+                        <div className="flex items-center gap-2.5 mb-5 flex-wrap">
+                            <span className="px-2.5 py-1 rounded-md bg-zinc-900/60 border border-zinc-800/60 text-zinc-400 text-[11px] font-mono">Go</span>
+                            <span className="px-2.5 py-1 rounded-md bg-zinc-900/60 border border-zinc-800/60 text-zinc-400 text-[11px] font-mono">Bubble Tea</span>
+                            <span className="px-2.5 py-1 rounded-md bg-zinc-900/60 border border-zinc-800/60 text-zinc-400 text-[11px] font-mono">libmpv</span>
                             <span className="px-2.5 py-1 rounded-md bg-zinc-900/60 border border-zinc-800/60 text-zinc-400 text-[11px] font-mono">TUI</span>
-                            <span className="px-2.5 py-1 rounded-md bg-zinc-900/60 border border-zinc-800/60 text-zinc-400 text-[11px] font-mono">Audio Engine</span>
                         </div>
 
                         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3 tracking-tight">Vibe-Fi</h2>
                         <p className="text-zinc-400 text-sm sm:text-base font-light leading-relaxed mb-8">
-                            A terminal-based music player designed for developers. Seamlessly integrates YouTube search, local library browsing, and a retro-futuristic audio visualizer into a high-performance keyboard-driven interface.
+                            A high-performance terminal music player re-engineered in Go with Charm&apos;s Bubble Tea Elm architecture. Features hardware-accelerated playback via libmpv, YouTube streaming with gapless stream caching, a 60 FPS live spectrum visualizer, synchronized LRC lyrics, native Linux MPRIS media controls, and a companion documentation web portal.
                         </p>
 
                         <div className="grid grid-cols-2 gap-3.5 mb-8">
-                            <FeatureItem icon={<Terminal className="w-4 h-4" />} label="Keyboard Driven" />
-                            <FeatureItem icon={<Music className="w-4 h-4" />} label="YT Search" />
-                            <FeatureItem icon={<Radio className="w-4 h-4" />} label="Live Visualizer" />
-                            <FeatureItem icon={<Mic2 className="w-4 h-4" />} label="Synced Lyrics" />
+                            <FeatureItem icon={<Terminal className="w-4 h-4" />} label="Go & Bubble Tea" />
+                            <FeatureItem icon={<Music className="w-4 h-4" />} label="libmpv Audio" />
+                            <FeatureItem icon={<Radio className="w-4 h-4" />} label="60 FPS Visualizer" />
+                            <FeatureItem icon={<Mic2 className="w-4 h-4" />} label="Synced LRC Lyrics" />
                         </div>
 
                         <div className="flex flex-wrap gap-3">
                             <HeroActionBtn
-                                href="https://github.com/Swadesh-c0de/vibe-fi"
-                                icon={<FaGithub className="w-4 h-4" />}
-                                label="Source Code"
+                                href="https://vibe-fi.vercel.app"
+                                icon={<ArrowUpRight className="w-4 h-4" />}
+                                label="Live Docs"
                                 primary
+                            />
+                            <HeroActionBtn
+                                href="https://github.com/swadesh-c0de/vibe-fi-go"
+                                icon={<FaGithub className="w-4 h-4" />}
+                                label="Go CLI"
+                            />
+                            <HeroActionBtn
+                                href="https://github.com/Swadesh-c0de/vibe-fi-web"
+                                icon={<FaGithub className="w-4 h-4" />}
+                                label="Web Portal"
                             />
                         </div>
                     </div>
@@ -186,8 +197,11 @@ export default function ProjectsClient() {
                         <div className="w-full max-w-sm bg-black/60 backdrop-blur-sm border border-zinc-800/50 rounded-2xl flex flex-col relative z-10 transition-transform hover:-translate-y-0.5 duration-300 overflow-hidden">
                             <div className="px-4 py-3 border-b border-zinc-800/50 flex justify-between items-center bg-zinc-900/30">
                                 <span className="text-zinc-500 font-mono text-[10px] uppercase tracking-widest flex items-center gap-2">
-                                    <Terminal className="w-3 h-3" />
+                                    <Terminal className="w-3 h-3 text-zinc-500" />
                                     vibe_fi :: audio
+                                </span>
+                                <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-zinc-900/60 border border-zinc-800/60 text-zinc-400">
+                                    Go · TUI
                                 </span>
                             </div>
 

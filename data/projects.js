@@ -8,9 +8,10 @@ export const featuredProjects = [
   },
   {
     title: "Vibe-Fi",
-    tag: "C++ · TUI",
-    desc: "Terminal audio player with visualizer & YouTube search.",
-    github: "https://github.com/Swadesh-c0de/vibe-fi"
+    tag: "Go · TUI",
+    desc: "Terminal audio player with real-time visualizer & YouTube streaming.",
+    live: "https://vibe-fi.vercel.app",
+    github: "https://github.com/swadesh-c0de/vibe-fi-go"
   },
   {
     title: "Kontacts",
@@ -22,6 +23,20 @@ export const featuredProjects = [
 ];
 
 export const allProjects = [
+  {
+    title: "Vibe-Fi",
+    desc: "A keyboard-driven terminal audio player with live spectrum visualizer, YouTube streaming, synchronized lyrics, and Linux MPRIS integration.",
+    stack: ["Go", "Bubble Tea", "libmpv", "Lip Gloss", "Linux D-Bus"],
+    links: { github: "https://github.com/swadesh-c0de/vibe-fi-go", live: "https://vibe-fi.vercel.app" },
+    type: "Systems"
+  },
+  {
+    title: "Vibe-Fi Web & Docs",
+    desc: "Product landing page and multi-route documentation portal for Vibe-Fi featuring installation guides, Waybar configurations, and shortcut cheatsheets.",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
+    links: { github: "https://github.com/Swadesh-c0de/vibe-fi-web", live: "https://vibe-fi.vercel.app" },
+    type: "Frontend"
+  },
   {
     title: "Rubric",
     desc: "A minimalist academic term scheduler, daily attendance logger, and journal memo manager with relational database synchronization.",
