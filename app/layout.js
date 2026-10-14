@@ -1,7 +1,6 @@
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Dock from "@/components/Dock";
-import PageTransition from "@/components/PageTransition";
 import { profileData } from "@/data/socials";
 
 const inter = Inter({
@@ -69,9 +68,7 @@ export default function RootLayout({ children }) {
       <body className="antialiased relative min-h-screen bg-black text-white overflow-x-hidden font-sans">
         {/* MAIN CONTENT */}
         <main className="relative z-10 w-full min-h-screen flex flex-col items-center">
-          <PageTransition>
-            {children}
-          </PageTransition>
+          {children}
         </main>
 
         <Dock />

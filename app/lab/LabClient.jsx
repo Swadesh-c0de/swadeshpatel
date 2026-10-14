@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Terminal, FlaskConical } from "lucide-react";
+import { ArrowUpRight, Terminal } from "lucide-react";
 import { labItems } from "@/data/lab";
 
 export default function LabClient() {

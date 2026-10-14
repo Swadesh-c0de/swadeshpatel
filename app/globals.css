@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-@plugin "tailwindcss-animate";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -107,4 +106,9 @@ body {
   animation: vbar-clean var(--dur) ease-in-out infinite alternate;
   transform-origin: bottom;
   will-change: transform, opacity;
+}
+
+.mask-gradient {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }

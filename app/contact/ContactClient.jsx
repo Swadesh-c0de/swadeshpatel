@@ -42,7 +42,7 @@ export default function ContactClient() {
             >
                 <div className="space-y-4 max-w-xl">
                     <h1 className="text-6xl sm:text-7xl md:text-8xl font-black tracking-tighter text-white leading-[0.88]">
-                        LET'S<br />CONNECT.
+                        LET&apos;S<br />CONNECT.
                     </h1>
                     <p className="text-zinc-500 text-base sm:text-lg max-w-lg font-light leading-relaxed">
                         Interested in collaborating or discussing systems, Linux, and web architecture? Reach out across platforms.

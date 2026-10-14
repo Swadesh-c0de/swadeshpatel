@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Terminal, Coffee, Zap, Download } from "lucide-react";
@@ -28,11 +27,7 @@ const philosophyIcons = [
 ];
 
 export default function AboutClient() {
-  const [age, setAge] = useState(21);
-
-  useEffect(() => {
-    setAge(calculateAge(DOB));
-  }, []);
+  const age = calculateAge(DOB);
 
   return (
     <div className="w-full max-w-5xl px-4 sm:px-6 pt-24 sm:pt-32 pb-32 mx-auto min-h-screen text-zinc-100">
@@ -98,7 +93,7 @@ export default function AboutClient() {
 
           <div className="prose prose-invert max-w-none text-zinc-400 font-light leading-relaxed text-sm sm:text-base space-y-4 pt-1">
             <p>
-              I am a {age}-year-old Computer Science student with a deep-seated passion for Linux, Robotics, and AI. My approach to technology is driven by a simple question: <span className="text-zinc-200 font-normal italic">"How does this work?"</span> — not just in the software layers, but all the way down to the physical silicon.
+              I am a {age}-year-old Computer Science student with a deep-seated passion for Linux, Robotics, and AI. My approach to technology is driven by a simple question: <span className="text-zinc-200 font-normal italic">&quot;How does this work?&quot;</span> — not just in the software layers, but all the way down to the physical silicon.
             </p>
             <p>
               Whether I’m diving into the complex physics of the universe, exploring the inner workings of an operating system, or tinkering with physical system hardware, I am always seeking to understand the systems that govern our world.

@@ -233,6 +233,7 @@ export const LogoLoop = memo(
             {item.node}
           </span>
         ) : (
+          /* eslint-disable-next-line @next/next/no-img-element */
           <img
             className={cx(
               'h-(--logoloop-logoHeight) w-auto block object-contain',

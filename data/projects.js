@@ -24,13 +24,6 @@ export const featuredProjects = [
 
 export const allProjects = [
   {
-    title: "Vibe-Fi",
-    desc: "A keyboard-driven terminal audio player with live spectrum visualizer, YouTube streaming, synchronized lyrics, and Linux MPRIS integration.",
-    stack: ["Go", "Bubble Tea", "libmpv", "Lip Gloss", "Linux D-Bus"],
-    links: { github: "https://github.com/swadesh-c0de/vibe-fi-go", live: "https://vibe-fi.vercel.app" },
-    type: "Systems"
-  },
-  {
     title: "Vibe-Fi Web & Docs",
     desc: "Product landing page and multi-route documentation portal for Vibe-Fi featuring installation guides, Waybar configurations, and shortcut cheatsheets.",
     stack: ["Next.js", "TypeScript", "Tailwind CSS"],
