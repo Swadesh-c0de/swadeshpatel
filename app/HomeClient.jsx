@@ -53,8 +53,9 @@ export default function HomeClient({ techStack = [] }) {
             <a
               href={resumeUrl}
               download
-              className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-100 text-zinc-950 font-medium rounded-full hover:bg-white hover:scale-105 transition-all duration-300 shadow-lg shadow-white/10"
               target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-100 text-zinc-950 font-medium rounded-full hover:bg-white hover:scale-105 transition-all duration-300 shadow-lg shadow-white/10"
             >
               <Download className="w-4 h-4" />
               <span>Download Resume</span>
@@ -117,7 +118,15 @@ export default function HomeClient({ techStack = [] }) {
             <span className="text-xs font-mono uppercase tracking-[0.2em] text-zinc-500 font-medium">Tech Stack</span>
           </div>
           <div className="mask-gradient w-full pt-6">
-            <LogoLoop logos={[...techStack]} speed={40} direction="left" logoHeight={40} gap={50} pauseOnHover={true} />
+            <LogoLoop
+              logos={[...techStack]}
+              speed={40}
+              direction="left"
+              logoHeight={40}
+              gap={50}
+              pauseOnHover={true}
+              ariaLabel="Technical Stack"
+            />
           </div>
         </BentoCard>
 
@@ -240,8 +249,17 @@ function PCArtCard() {
 }
 
 function SocialLink({ icon, href, label, download }) {
+  const isInternal = href === "/contact" || download;
   return (
-    <a href={href} target={href === "/contact" || download ? "_self" : "_blank"} download={download} className="p-3 rounded-full bg-white/5 text-zinc-400 hover:bg-white hover:text-black transition-all duration-300" title={label}>
+    <a
+      href={href}
+      target={isInternal ? "_self" : "_blank"}
+      rel={isInternal ? undefined : "noopener noreferrer"}
+      download={download}
+      aria-label={label}
+      title={label}
+      className="p-3 rounded-full bg-white/5 text-zinc-400 hover:bg-white hover:text-black transition-all duration-300"
+    >
       {icon}
     </a>
   );

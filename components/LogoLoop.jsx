@@ -219,6 +219,7 @@ export const LogoLoop = memo(
     const renderLogoItem = useCallback(
       (item, key) => {
         const isNodeItem = 'node' in item;
+        const itemAriaLabel = isNodeItem ? (item.ariaLabel ?? item.title) : (item.alt ?? item.title);
 
         const content = isNodeItem ? (
           <span
@@ -228,6 +229,8 @@ export const LogoLoop = memo(
               scaleOnHover &&
               'transition-transform duration-300 ease-in-out group-hover/item:scale-120'
             )}
+            title={item.title}
+            aria-label={!item.href ? itemAriaLabel : undefined}
             aria-hidden={!!item.href && !item.ariaLabel}
           >
             {item.node}
@@ -255,8 +258,6 @@ export const LogoLoop = memo(
             draggable={false}
           />
         );
-
-        const itemAriaLabel = isNodeItem ? (item.ariaLabel ?? item.title) : (item.alt ?? item.title);
 
         const inner = item.href ? (
           <a

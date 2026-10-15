@@ -14,6 +14,13 @@ export const featuredProjects = [
     github: "https://github.com/swadesh-c0de/vibe-fi-go"
   },
   {
+    title: "Rubric",
+    tag: "Next.js · Prisma",
+    desc: "Minimalist academic term scheduler, attendance logger & memo manager.",
+    live: "https://rubric-core.vercel.app",
+    github: "https://github.com/Swadesh-c0de/rubric"
+  },
+  {
     title: "Kontacts",
     tag: "Next.js · Framer",
     desc: "Fluid contact directory with glassmorphic UI.",

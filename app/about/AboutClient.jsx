@@ -94,7 +94,7 @@ export default function AboutClient() {
 
           <div className="text-zinc-400 font-light leading-relaxed text-sm sm:text-base space-y-4 pt-1">
             <p>
-              I am a {age}-year-old Computer Science student with a deep-seated passion for Linux, Robotics, and AI. My approach to technology is driven by a simple question: <span className="text-zinc-200 font-normal italic">&quot;How does this work?&quot;</span> — not just in the software layers, but all the way down to the physical silicon.
+              I am a <span suppressHydrationWarning>{age}</span>-year-old Computer Science student with a deep-seated passion for Linux, Robotics, and AI. My approach to technology is driven by a simple question: <span className="text-zinc-200 font-normal italic">&quot;How does this work?&quot;</span> — not just in the software layers, but all the way down to the physical silicon.
             </p>
             <p>
               Whether I’m diving into the complex physics of the universe, exploring the inner workings of an operating system, or tinkering with physical system hardware, I am always seeking to understand the systems that govern our world.

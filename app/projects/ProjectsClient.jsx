@@ -282,6 +282,7 @@ function GlassProjectCard({ project, index }) {
                                 href={project.links.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                aria-label={`${project.title} Source Code`}
                                 className="p-2 text-zinc-500 hover:text-white transition-colors bg-zinc-900/40 rounded-xl border border-zinc-800/40 hover:border-zinc-700"
                                 title="Source Code"
                             >
@@ -293,6 +294,7 @@ function GlassProjectCard({ project, index }) {
                                 href={project.links.live}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                aria-label={`${project.title} Live Demo`}
                                 className="p-2 text-zinc-500 hover:text-white transition-colors bg-zinc-900/40 rounded-xl border border-zinc-800/40 hover:border-zinc-700"
                                 title="Live Demo"
                             >
