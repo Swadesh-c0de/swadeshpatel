@@ -41,7 +41,7 @@ export default function ProjectsClient() {
                 <div className="relative w-full bg-zinc-950/40 border border-zinc-800/40 hover:border-zinc-700/60 backdrop-blur-sm rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 p-1 transition-all duration-300">
 
                     {/* Content Side */}
-                    <div className="p-7 sm:p-10 lg:p-12 flex flex-col justify-center">
+                    <div className="p-5 sm:p-10 lg:p-12 flex flex-col justify-center">
                         <div className="flex items-center gap-2.5 mb-5">
                             <span className="px-2.5 py-1 rounded-md bg-zinc-900/60 border border-zinc-800/60 text-zinc-400 text-[11px] font-mono">Next.js</span>
                             <span className="px-2.5 py-1 rounded-md bg-zinc-900/60 border border-zinc-800/60 text-zinc-400 text-[11px] font-mono">Web3</span>
@@ -60,7 +60,7 @@ export default function ProjectsClient() {
                             <FeatureItem icon={<MessageCircle className="w-4 h-4" />} label="XMTP Protocol" />
                         </div>
 
-                        <div className="flex flex-wrap gap-3">
+                        <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2.5 sm:gap-3">
                             <HeroActionBtn
                                 href="https://d-chatapp.vercel.app"
                                 icon={<ArrowUpRight className="w-4 h-4" />}
@@ -152,7 +152,7 @@ export default function ProjectsClient() {
                 <div className="relative w-full bg-zinc-950/40 border border-zinc-800/40 hover:border-zinc-700/60 backdrop-blur-sm rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 p-1 transition-all duration-300">
 
                     {/* Content Side */}
-                    <div className="p-7 sm:p-10 lg:p-12 flex flex-col justify-center">
+                    <div className="p-5 sm:p-10 lg:p-12 flex flex-col justify-center">
                         <div className="flex items-center gap-2.5 mb-5 flex-wrap">
                             <span className="px-2.5 py-1 rounded-md bg-zinc-900/60 border border-zinc-800/60 text-zinc-400 text-[11px] font-mono">Go</span>
                             <span className="px-2.5 py-1 rounded-md bg-zinc-900/60 border border-zinc-800/60 text-zinc-400 text-[11px] font-mono">Bubble Tea</span>
@@ -172,12 +172,13 @@ export default function ProjectsClient() {
                             <FeatureItem icon={<Mic2 className="w-4 h-4" />} label="Synced LRC Lyrics" />
                         </div>
 
-                        <div className="flex flex-wrap gap-3">
+                        <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2.5 sm:gap-3">
                             <HeroActionBtn
                                 href="https://vibe-fi.vercel.app"
                                 icon={<ArrowUpRight className="w-4 h-4" />}
                                 label="Live Docs"
                                 primary
+                                className="col-span-2 sm:col-span-1"
                             />
                             <HeroActionBtn
                                 href="https://github.com/swadesh-c0de/vibe-fi-go"
@@ -334,16 +335,16 @@ function FeatureItem({ icon, label }) {
     );
 }
 
-function HeroActionBtn({ href, icon, label, primary }) {
+function HeroActionBtn({ href, icon, label, primary, className = "" }) {
     return (
         <a
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-300
+            className={`inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2.5 rounded-full text-[11px] sm:text-xs font-mono uppercase tracking-wider transition-all duration-300 text-center whitespace-nowrap
           ${primary
                     ? "bg-zinc-100 text-zinc-950 font-medium hover:bg-white hover:scale-105 shadow-md shadow-white/5"
-                    : "bg-zinc-900/60 text-zinc-400 border border-zinc-800/70 hover:text-white hover:bg-zinc-800 hover:border-zinc-700"}`}
+                    : "bg-zinc-900/60 text-zinc-400 border border-zinc-800/70 hover:text-white hover:bg-zinc-800 hover:border-zinc-700"} ${className}`}
         >
             {icon}
             <span>{label}</span>
