@@ -15,7 +15,7 @@ export default function LabClient() {
                 transition={{ duration: 0.5 }}
                 className="mb-16 sm:mb-20 space-y-6 max-w-2xl"
             >
-                <h1 className="text-6xl sm:text-7xl md:text-8xl font-black tracking-tighter text-white leading-[0.88]">
+                <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter text-white leading-[0.88]">
                     THE<br />LAB.
                 </h1>
 

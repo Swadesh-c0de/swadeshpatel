@@ -10,5 +10,11 @@ export const labItems = [
     desc: "Terminal audio player and visualizer engine built with Charm Bubble Tea, libmpv CGO bindings, live spectrum analysis, and MPRIS integration.",
     tag: "Go · TUI · libmpv",
     link: "https://github.com/swadesh-c0de/vibe-fi-go"
+  },
+  {
+    title: "GitNode Architecture Visualizer",
+    desc: "Interactive graph visualization engine exploring GitHub repository file trees, dependency structures, and module hierarchies.",
+    tag: "Next.js · Graph · API",
+    link: "https://github.com/Swadesh-c0de/gitnode"
   }
 ];

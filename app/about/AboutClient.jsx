@@ -40,7 +40,7 @@ export default function AboutClient() {
         className="mb-16 sm:mb-20 flex flex-col md:flex-row md:items-center justify-between gap-8 sm:gap-12"
       >
         <div className="space-y-6 max-w-xl">
-          <h1 className="text-6xl sm:text-7xl md:text-8xl font-black tracking-tighter text-white leading-[0.88]">
+          <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter text-white leading-[0.88]">
             ABOUT<br />ME.
           </h1>
 
@@ -67,6 +67,7 @@ export default function AboutClient() {
             width={400}
             height={250}
             priority
+            sizes="(max-width: 768px) 100vw, 384px"
             className="w-full h-full object-contain opacity-80 transition-all duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
@@ -91,7 +92,7 @@ export default function AboutClient() {
             Hi, I’m Swadesh.
           </h3>
 
-          <div className="prose prose-invert max-w-none text-zinc-400 font-light leading-relaxed text-sm sm:text-base space-y-4 pt-1">
+          <div className="text-zinc-400 font-light leading-relaxed text-sm sm:text-base space-y-4 pt-1">
             <p>
               I am a {age}-year-old Computer Science student with a deep-seated passion for Linux, Robotics, and AI. My approach to technology is driven by a simple question: <span className="text-zinc-200 font-normal italic">&quot;How does this work?&quot;</span> — not just in the software layers, but all the way down to the physical silicon.
             </p>

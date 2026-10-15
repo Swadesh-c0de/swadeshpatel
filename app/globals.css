@@ -112,3 +112,11 @@ body {
   -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .visualizer-clean {
+    animation: none;
+    transform: scaleY(var(--scale));
+    opacity: 0.8;
+  }
+}

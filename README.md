@@ -38,9 +38,14 @@ A minimalist, high-performance developer portfolio and digital workspace enginee
 
 ```text
 ├── app/
-│   ├── layout.js              # Root layout with fonts, metadata, Dock & transitions
-│   ├── page.js                # Home page (Workspace & Hero Bento)
+│   ├── layout.js              # Root layout with fonts, metadata & Dock
+│   ├── template.js            # Route transition wrapper
+│   ├── page.js                # Server entry for Home page & tech stack icons
+│   ├── HomeClient.jsx         # Interactive Home workspace & Hero Bento grid
 │   ├── globals.css            # Global CSS, theme tokens & Tailwind v4 setup
+│   ├── opengraph-image.js     # Dynamic OpenGraph social card generator
+│   ├── robots.js              # Search engine crawler rules
+│   ├── sitemap.js             # Dynamic XML sitemap generator
 │   ├── not-found.js           # Custom 404 page
 │   ├── about/
 │   │   ├── page.js            # Server entry for SEO & metadata
@@ -56,8 +61,9 @@ A minimalist, high-performance developer portfolio and digital workspace enginee
 │       └── ContactClient.jsx  # Social directory & quick contact options
 ├── components/
 │   ├── Dock.jsx               # Floating navigation dock
-│   ├── PageTransition.jsx     # Route transition wrapper
 │   └── LogoLoop.jsx           # Animated tech stack marquee
+├── config/
+│   └── constants.js           # Global environment constants
 ├── data/
 │   ├── projects.js            # Featured & full project listings
 │   ├── skills.js              # Technical domains & development philosophies

@@ -41,7 +41,7 @@ export default function ProjectsClient() {
                 <div className="relative w-full bg-zinc-950/40 border border-zinc-800/40 hover:border-zinc-700/60 backdrop-blur-sm rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 p-1 transition-all duration-300">
 
                     {/* Content Side */}
-                    <div className="p-7 sm:p-10 lg:p-12 flex flex-col justify-center order-2 lg:order-1">
+                    <div className="p-7 sm:p-10 lg:p-12 flex flex-col justify-center">
                         <div className="flex items-center gap-2.5 mb-5">
                             <span className="px-2.5 py-1 rounded-md bg-zinc-900/60 border border-zinc-800/60 text-zinc-400 text-[11px] font-mono">Next.js</span>
                             <span className="px-2.5 py-1 rounded-md bg-zinc-900/60 border border-zinc-800/60 text-zinc-400 text-[11px] font-mono">Web3</span>
@@ -76,7 +76,7 @@ export default function ProjectsClient() {
                     </div>
 
                     {/* Visual Side (Live Iframe) */}
-                    <div className="relative overflow-hidden flex items-center justify-center p-4 sm:p-8 lg:p-10 order-1 lg:order-2 min-h-[360px] lg:h-auto w-full">
+                    <div className="relative overflow-hidden flex items-center justify-center p-4 sm:p-8 lg:p-10 min-h-[360px] lg:h-auto w-full">
                         <div className="w-full max-w-[320px] sm:max-w-sm lg:max-w-sm h-[360px] sm:h-[400px] bg-black/60 backdrop-blur-sm border border-zinc-800/60 rounded-2xl overflow-hidden shadow-2xl relative flex flex-col transition-transform hover:-translate-y-0.5 duration-300">
                             {/* Browser Toolbar Mock */}
                             <div className="h-8 bg-zinc-900/90 border-b border-zinc-800/80 flex items-center justify-between px-3.5 w-full shrink-0 z-10 select-none">
@@ -112,7 +112,7 @@ export default function ProjectsClient() {
                                 {loadIframe ? (
                                     <>
                                         {!iframeLoaded && (
-                                            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-zinc-950/70 backdrop-blur-xs">
+                                            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-zinc-950/70 backdrop-blur-sm">
                                                 <Loader2 className="w-5 h-5 text-zinc-600 animate-spin mb-2" />
                                                 <span className="text-zinc-500 text-[11px] font-mono">Loading Preview...</span>
                                             </div>
@@ -152,7 +152,7 @@ export default function ProjectsClient() {
                 <div className="relative w-full bg-zinc-950/40 border border-zinc-800/40 hover:border-zinc-700/60 backdrop-blur-sm rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 p-1 transition-all duration-300">
 
                     {/* Content Side */}
-                    <div className="p-7 sm:p-10 lg:p-12 flex flex-col justify-center order-2 lg:order-1">
+                    <div className="p-7 sm:p-10 lg:p-12 flex flex-col justify-center">
                         <div className="flex items-center gap-2.5 mb-5 flex-wrap">
                             <span className="px-2.5 py-1 rounded-md bg-zinc-900/60 border border-zinc-800/60 text-zinc-400 text-[11px] font-mono">Go</span>
                             <span className="px-2.5 py-1 rounded-md bg-zinc-900/60 border border-zinc-800/60 text-zinc-400 text-[11px] font-mono">Bubble Tea</span>
@@ -193,7 +193,7 @@ export default function ProjectsClient() {
                     </div>
 
                     {/* Visual Side (TUI Player Mock) */}
-                    <div className="relative overflow-hidden flex items-center justify-center p-4 sm:p-8 lg:p-10 order-1 lg:order-2 min-h-[360px] lg:h-auto">
+                    <div className="relative overflow-hidden flex items-center justify-center p-4 sm:p-8 lg:p-10 min-h-[360px] lg:h-auto">
                         <div className="w-full max-w-sm bg-black/60 backdrop-blur-sm border border-zinc-800/50 rounded-2xl flex flex-col relative z-10 transition-transform hover:-translate-y-0.5 duration-300 overflow-hidden">
                             <div className="px-4 py-3 border-b border-zinc-800/50 flex justify-between items-center bg-zinc-900/30">
                                 <span className="text-zinc-500 font-mono text-[10px] uppercase tracking-widest flex items-center gap-2">

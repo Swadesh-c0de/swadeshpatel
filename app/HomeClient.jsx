@@ -40,7 +40,7 @@ export default function HomeClient({ techStack = [] }) {
           transition={{ duration: 0.5 }}
           className="space-y-6"
         >
-          <h1 className="text-6xl sm:text-8xl md:text-9xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white via-zinc-200 to-zinc-500 leading-[0.85] pb-4">
+          <h1 className="text-5xl sm:text-8xl md:text-9xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white via-zinc-200 to-zinc-500 leading-[0.85] pb-4">
             SWADESH<br />PATEL
           </h1>
 
@@ -69,11 +69,11 @@ export default function HomeClient({ techStack = [] }) {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-40px" }}
-        className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[minmax(180px,auto)]"
+        className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[minmax(180px,auto)]"
       >
 
         {/* BIO CARD (Large) */}
-        <BentoCard className="md:col-span-2 lg:col-span-2 row-span-1 flex flex-col justify-between p-6 sm:p-8 bg-zinc-950/40 border-zinc-800/40 hover:border-zinc-700/60 transition-colors">
+        <BentoCard className="sm:col-span-2 md:col-span-3 lg:col-span-2 row-span-1 flex flex-col justify-between p-6 sm:p-8 bg-zinc-950/40 border-zinc-800/40 hover:border-zinc-700/60 transition-colors">
           <div>
             <div className="flex items-center justify-between mb-4">
               <span className="text-xs font-mono uppercase tracking-[0.2em] text-zinc-500 font-medium">Profile</span>
@@ -87,7 +87,7 @@ export default function HomeClient({ techStack = [] }) {
         </BentoCard>
 
         {/* SOCIALS */}
-        <BentoCard className="md:col-span-1 bg-zinc-950/40 border-zinc-800/40 hover:border-zinc-700/60 p-6 flex flex-col justify-between transition-colors">
+        <BentoCard className="sm:col-span-1 md:col-span-2 lg:col-span-1 bg-zinc-950/40 border-zinc-800/40 hover:border-zinc-700/60 p-6 flex flex-col justify-between transition-colors">
           <div className="flex items-center justify-between mb-3">
             <span className="text-xs font-mono uppercase tracking-[0.2em] text-zinc-500 font-medium">Connect</span>
           </div>
@@ -99,7 +99,7 @@ export default function HomeClient({ techStack = [] }) {
         </BentoCard>
 
         {/* LOCATION / STATUS */}
-        <BentoCard className="hidden lg:flex flex-col justify-between p-6 bg-zinc-950/40 border-zinc-800/40 hover:border-zinc-700/60 transition-colors">
+        <BentoCard className="sm:col-span-1 md:col-span-1 lg:col-span-1 flex flex-col justify-between p-6 bg-zinc-950/40 border-zinc-800/40 hover:border-zinc-700/60 transition-colors">
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-mono uppercase tracking-[0.2em] text-zinc-500 font-medium">Location</span>
             <span className="text-[10px] font-mono text-zinc-600">{profileData.timezone}</span>
@@ -111,7 +111,7 @@ export default function HomeClient({ techStack = [] }) {
         </BentoCard>
 
         {/* TECH STACK (Wide Marquee) */}
-        <BentoCard className="md:col-span-3 lg:col-span-4 overflow-hidden relative min-h-40 flex flex-col justify-center bg-zinc-950/40 border-zinc-800/40 hover:border-zinc-700/60 p-6 sm:p-8">
+        <BentoCard className="sm:col-span-2 md:col-span-3 lg:col-span-4 overflow-hidden relative min-h-40 flex flex-col justify-center bg-zinc-950/40 border-zinc-800/40 hover:border-zinc-700/60 p-6 sm:p-8">
           <div className="absolute top-5 left-6 sm:left-8 flex items-center gap-2">
             <BsLightningCharge className="text-zinc-500 w-3.5 h-3.5" />
             <span className="text-xs font-mono uppercase tracking-[0.2em] text-zinc-500 font-medium">Tech Stack</span>
@@ -149,7 +149,7 @@ function FeaturedProjectsCard() {
   const featured = featuredProjects;
 
   return (
-    <BentoCard className="h-fit md:col-span-3 lg:col-span-2 p-6 sm:p-8 flex flex-col justify-between bg-zinc-950/40 border-zinc-800/40 hover:border-zinc-700/60 transition-all duration-500">
+    <BentoCard className="h-full sm:col-span-2 md:col-span-3 lg:col-span-2 order-1 lg:order-2 p-6 sm:p-8 flex flex-col justify-between bg-zinc-950/40 border-zinc-800/40 hover:border-zinc-700/60 transition-all duration-500">
       <div>
         <div className="flex items-center justify-between mb-5">
           <span className="text-xs font-mono uppercase tracking-[0.2em] text-zinc-500 font-medium">Selected Work</span>
@@ -181,14 +181,15 @@ function FeaturedProjectsCard() {
                 </p>
               </div>
 
-              <div className="flex items-center gap-2 shrink-0 opacity-50 group-hover/row:opacity-100 transition-opacity">
+              <div className="flex items-center gap-2 shrink-0 opacity-80 sm:opacity-50 group-hover/row:opacity-100 transition-opacity">
                 {proj.github && (
                   <a
                     href={proj.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-1.5 text-zinc-500 hover:text-white transition-colors"
+                    className="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-900/60 transition-colors"
                     title="Source Code"
+                    aria-label={`${proj.title} Source Code`}
                   >
                     <FaGithub className="w-3.5 h-3.5" />
                   </a>
@@ -198,8 +199,9 @@ function FeaturedProjectsCard() {
                     href={proj.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-1.5 text-zinc-500 hover:text-white transition-colors"
+                    className="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-900/60 transition-colors"
                     title="Live Preview"
+                    aria-label={`${proj.title} Live Preview`}
                   >
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
@@ -219,7 +221,7 @@ function FeaturedProjectsCard() {
 
 function PCArtCard() {
   return (
-    <BentoCard className="h-fit md:col-span-3 lg:col-span-2 p-6 sm:p-8 flex flex-col justify-between transition-all duration-500 group border-0 border-none bg-transparent">
+    <BentoCard className="h-full sm:col-span-2 md:col-span-3 lg:col-span-2 order-2 lg:order-1 p-6 sm:p-8 flex flex-col justify-between transition-all duration-500 group border-0 border-none bg-transparent">
       <div>
         <div className="relative overflow-visible w-full h-full flex items-center justify-center">
           <Image
@@ -228,6 +230,7 @@ function PCArtCard() {
             width={600}
             height={375}
             priority
+            sizes="(max-width: 1024px) 100vw, 50vw"
             className="w-full h-full object-contain opacity-80 transition-all duration-700"
           />
         </div>
