@@ -1,102 +1,81 @@
-"use client";
-
+import PageWebs from "@/components/PageWebs";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight, MapPin, MessageSquare } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { profileData, socialLinks } from "@/data/socials";
 
-import { socialLinks } from "@/data/socials";
+const channels = [
+  {
+    platform: "LinkedIn",
+    handle: "swadeshpatel",
+    description: "Project conversations, professional connections, and collaboration.",
+    action: "Let’s connect",
+    href: socialLinks.linkedin,
+    Icon: FaLinkedin,
+  },
+  {
+    platform: "GitHub",
+    handle: "@Swadesh-c0de",
+    description: "Explore the code, open an issue, or contribute to a project.",
+    action: "Explore my repositories",
+    href: socialLinks.github,
+    Icon: FaGithub,
+  },
+  {
+    platform: "X / Twitter",
+    handle: "@swadeshcodes",
+    description: "Talk development, Linux, and the ideas behind the builds.",
+    action: "Join the conversation",
+    href: socialLinks.x,
+    Icon: FaXTwitter,
+  },
+];
 
 export default function ContactClient() {
-    const socials = [
-        {
-            platform: "X (Twitter)",
-            handle: "@swadeshcodes",
-            href: socialLinks.x,
-            icon: <FaXTwitter className="w-5 h-5" />
-        },
-        {
-            platform: "GitHub",
-            handle: "@Swadesh-c0de",
-            href: socialLinks.github,
-            icon: <FaGithub className="w-5 h-5" />
-        },
-        {
-            platform: "LinkedIn",
-            handle: "@SwadeshPatel",
-            href: socialLinks.linkedin,
-            icon: <FaLinkedin className="w-5 h-5" />
-        }
-    ];
-
-    return (
-        <div className="w-full max-w-5xl px-4 sm:px-6 pt-24 sm:pt-32 pb-32 mx-auto min-h-screen text-zinc-100">
-
-            {/* HEADER */}
-            <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="mb-16 sm:mb-20 flex flex-col md:flex-row md:items-center justify-between gap-8 sm:gap-12"
-            >
-                <div className="space-y-4 max-w-xl">
-                    <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter text-white leading-[0.88]">
-                        LET&apos;S<br />CONNECT.
-                    </h1>
-                    <p className="text-zinc-500 text-base sm:text-lg max-w-lg font-light leading-relaxed">
-                        Interested in collaborating or discussing systems, Linux, and web architecture? Reach out across platforms.
-                    </p>
-                </div>
-
-                {/* TOP RIGHT WHITE DESIGN LINE ART */}
-                <div className="w-full md:w-80 lg:w-96 aspect-[16/10] relative overflow-visible bg-black group shrink-0">
-                    <Image
-                        src="/images/satellite-comm-white.png"
-                        alt="Orbital Communication Satellite Line Art"
-                        width={400}
-                        height={250}
-                        priority
-                        sizes="(max-width: 768px) 100vw, 384px"
-                        className="w-full h-full object-contain opacity-80 transition-all duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                </div>
-            </motion.div>
-
-            {/* CHANNELS GRID (3 Columns) */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1, duration: 0.6 }}
-                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 w-full mb-10"
-            >
-                {socials.map((item, idx) => (
-                    <a
-                        key={idx}
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-6 sm:p-7 rounded-3xl bg-zinc-950/40 border border-zinc-800/40 hover:border-zinc-700/60 transition-all duration-300 flex flex-col justify-between group"
-                    >
-                        <div className="flex justify-between items-start mb-10">
-                            <div className="p-3 text-zinc-400 group-hover:text-white transition-colors">
-                                {item.icon}
-                            </div>
-                            <ArrowUpRight className="w-4 h-4 text-zinc-600 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                        </div>
-
-                        <div>
-                            <h3 className="text-base font-bold text-zinc-200 group-hover:text-white transition-colors tracking-tight">
-                                {item.platform}
-                            </h3>
-                            <p className="text-xs font-mono text-zinc-500 mt-1">
-                                {item.handle}
-                            </p>
-                        </div>
-                    </a>
-                ))}
-            </motion.div>
+  return (
+    <div className="contact-page page-container pt-24 sm:pt-32 pb-32 text-zinc-100">
+      <PageWebs variant="contact" />
+      <section className="contact-intro" aria-labelledby="contact-title">
+        <div>
+          <h1 id="contact-title" className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter text-white leading-[0.88]">
+            LET&apos;S<br />CONNECT.
+          </h1>
+          <p className="contact-intro-copy">Have something in mind? Let’s talk about your next project, an interesting technical problem, or something worth building together.</p>
+          <p className="contact-location"><MapPin size={13} aria-hidden="true" /><span>{profileData.location}</span><span className="contact-meta-divider" aria-hidden="true" /><span>{profileData.timezone}</span></p>
         </div>
-    );
+        <div className="contact-illustration">
+          <Image
+            src="/images/satellite-comm-white.png"
+            alt="A satellite sending a signal, illustrated in white line art"
+            width={1376}
+            height={768}
+            loading="eager"
+            sizes="(max-width: 639px) 90vw, (max-width: 900px) 38vw, 400px"
+            className="w-full h-full object-contain"
+          />
+        </div>
+      </section>
+
+      <section aria-labelledby="contact-channels-title">
+        <div className="contact-section-heading"><h2 id="contact-channels-title">Where to find me</h2><span>Choose your channel</span></div>
+        <div className="contact-channels">
+          {channels.map(({ platform, handle, description, action, href, Icon }) => (
+            <a key={platform} href={href} target="_blank" rel="noopener noreferrer" className="contact-channel" aria-label={`${platform}: ${action} (opens in a new tab)`}>
+              <div className="contact-channel-top"><span className="contact-channel-icon"><Icon size={21} aria-hidden="true" /></span><ArrowUpRight size={17} className="contact-channel-arrow" aria-hidden="true" /></div>
+              <div className="contact-channel-copy"><h3>{platform}</h3><p className="contact-handle">{handle}</p><p className="contact-description">{description}</p></div>
+              <span className="contact-channel-action">{action}<ArrowUpRight size={13} aria-hidden="true" /></span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <aside className="contact-context">
+        <MessageSquare size={19} strokeWidth={1.4} aria-hidden="true" />
+        <div><h2>A little context goes a long way.</h2><p>Share what you’re working on, what you have in mind, and any useful links. It’s a good place to start.</p></div>
+        <Link href="/projects">See my work<ArrowUpRight size={14} aria-hidden="true" /></Link>
+      </aside>
+    </div>
+  );
 }

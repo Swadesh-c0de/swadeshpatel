@@ -1,16 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 export default function Template({ children }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.15, ease: "linear" }}
-      className="w-full h-full flex flex-col items-center"
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className="w-full flex flex-col items-center">{children}</div>;
 }

@@ -1,7 +1,7 @@
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Dock from "@/components/Dock";
-import { profileData } from "@/data/socials";
+import { profileData, socialLinks } from "@/data/socials";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -35,7 +35,7 @@ export const metadata = {
   ],
   authors: [{ name: profileData.name }],
   creator: profileData.name,
-  metadataBase: new URL("https://swadeshpatel.vercel.app"),
+  metadataBase: new URL(socialLinks.website),
   openGraph: {
     title: "Swadesh Patel | Full-Stack Developer",
     description: profileData.bio,
@@ -66,11 +66,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="antialiased relative min-h-screen bg-black text-white overflow-x-hidden font-sans">
-        {/* MAIN CONTENT */}
-        <main className="relative z-10 w-full min-h-screen flex flex-col items-center">
+        <a href="#main-content" className="skip-link">Skip to content</a>
+        <main id="main-content" tabIndex={-1} className="relative z-10 w-full min-h-screen flex flex-col items-center">
           {children}
         </main>
-
         <Dock />
       </body>
     </html>

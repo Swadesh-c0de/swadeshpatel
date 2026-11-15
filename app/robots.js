@@ -1,9 +1,11 @@
+import { socialLinks } from "@/data/socials";
+
 export default function robots() {
   return {
     rules: {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://swadeshpatel.vercel.app/sitemap.xml",
+    sitemap: `${socialLinks.website}/sitemap.xml`,
   };
 }

@@ -1,18 +1,17 @@
+import { pageMetadata } from "@/lib/metadata";
 import AboutClient from "./AboutClient";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "About",
   description: "About Swadesh Patel — Computer Science student with a deep-seated passion for Linux, Robotics, and AI.",
-  openGraph: {
-    title: "About | Swadesh Patel",
-    description: "About Swadesh Patel — Computer Science student with a deep-seated passion for Linux, Robotics, and AI.",
-    url: "/about",
-    siteName: "Swadesh Patel Portfolio",
-    locale: "en_US",
-    type: "website",
-  },
-};
+  path: "/about",
+});
+
+export const revalidate = 86400;
 
 export default function AboutPage() {
-  return <AboutClient />;
+  const today = new Date();
+  const birthdayPassed = today.getUTCMonth() > 0 || today.getUTCDate() >= 10;
+  const age = today.getUTCFullYear() - 2005 - (birthdayPassed ? 0 : 1);
+  return <AboutClient age={age} />;
 }

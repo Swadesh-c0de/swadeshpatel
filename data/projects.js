@@ -1,18 +1,22 @@
+export const dChatProject = {
+  title: "dChat",
+  tag: "Web3 · XMTP",
+  desc: "E2E encrypted decentralized messaging protocol.",
+  live: "https://d-chatapp.vercel.app",
+  github: "https://github.com/Swadesh-c0de/dChat",
+};
+
+export const vibeFiProject = {
+  title: "Vibe-Fi",
+  tag: "Go · TUI",
+  desc: "Terminal audio player with real-time visualizer & YouTube streaming.",
+  live: "https://vibe-fi.vercel.app",
+  github: "https://github.com/swadesh-c0de/vibe-fi-go",
+};
+
 export const featuredProjects = [
-  {
-    title: "dChat",
-    tag: "Web3 · XMTP",
-    desc: "E2E encrypted decentralized messaging protocol.",
-    live: "https://d-chatapp.vercel.app",
-    github: "https://github.com/Swadesh-c0de/dChat"
-  },
-  {
-    title: "Vibe-Fi",
-    tag: "Go · TUI",
-    desc: "Terminal audio player with real-time visualizer & YouTube streaming.",
-    live: "https://vibe-fi.vercel.app",
-    github: "https://github.com/swadesh-c0de/vibe-fi-go"
-  },
+  dChatProject,
+  vibeFiProject,
   {
     title: "Rubric",
     tag: "Next.js · Prisma",
@@ -67,8 +71,8 @@ export const allProjects = [
   },
   {
     title: "Developer Portfolio",
-    desc: "Personal minimalist developer portfolio and digital workspace built with Next.js App Router, Framer Motion, and Tailwind CSS.",
-    stack: ["Next.js", "React", "Framer Motion", "Tailwind CSS"],
+    desc: "Personal minimalist developer portfolio and digital workspace built with Next.js App Router, CSS animations, and Tailwind CSS.",
+    stack: ["Next.js", "React", "CSS", "Tailwind CSS"],
     links: { github: "https://github.com/Swadesh-c0de/swadeshpatel", live: "https://swadeshpatel.vercel.app" },
     type: "Frontend"
   },
