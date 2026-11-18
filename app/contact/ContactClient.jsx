@@ -1,4 +1,3 @@
-import PageWebs from "@/components/PageWebs";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, MapPin, MessageSquare } from "lucide-react";
@@ -36,7 +35,7 @@ const channels = [
 export default function ContactClient() {
   return (
     <div className="contact-page page-container pt-24 sm:pt-32 pb-32 text-zinc-100">
-      <PageWebs variant="contact" />
+
       <section className="contact-intro" aria-labelledby="contact-title">
         <div>
           <h1 id="contact-title" className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter text-white leading-[0.88]">

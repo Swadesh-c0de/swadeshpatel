@@ -1,4 +1,3 @@
-import PageWebs from "@/components/PageWebs";
 import Image from "next/image";
 import { Terminal, Coffee, Zap, Download } from "lucide-react";
 import { resumeUrl } from "@/config/constants";
@@ -14,7 +13,6 @@ export default function AboutClient({ age }) {
 
   return (
     <div className="page-container pt-24 sm:pt-32 pb-32 min-h-screen text-zinc-100">
-      <PageWebs variant="about" />
 
       {/* HEADER SECTION */}
       <div

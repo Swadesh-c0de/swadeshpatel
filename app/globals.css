@@ -81,9 +81,18 @@ body {
 }
 
 /* Silk is pinned to the viewport edges, outside the centered content column. */
+.web-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  user-select: none;
+}
+
 .page-web-decoration {
   display: block;
-  position: absolute;
+  height: auto;
+  position: fixed;
   top: 0;
   width: clamp(130px, 17vw, 240px);
   color: #dedee2;
@@ -96,19 +105,19 @@ body {
 .page-web-decoration--left { left: 0; }
 .page-web-decoration--right { right: 0; }
 .page-web-decoration--center {
+  z-index: 30;
   left: 50%;
   transform: translateX(-50%);
   width: clamp(140px, 19vw, 270px);
-  opacity: 0.75;
 }
 
 @media (max-width: 639px) {
-  .page-web-decoration { --corner-web-width: 82px; --ceiling-web-width: 108px; width: 82px; opacity: 0.65; }
+  .page-web-decoration { width: 82px; opacity: 0.65; }
   .page-web-decoration--center { width: 108px; }
 }
 
 .spider-web {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   width: clamp(220px, 29vw, 420px);
@@ -275,14 +284,15 @@ body {
   .project-card:hover { transform: translateY(-3px); }
 }
 
-/* Page-specific corner webs share the same lightweight interaction controller. */
-.spider-web--about { left: 0; right: auto; width: clamp(150px, 18vw, 230px); opacity: 0.65; }
-.spider-web--projects { width: clamp(190px, 25vw, 350px); opacity: 0.75; }
-.spider-web--lab { left: 0; right: auto; width: clamp(140px, 16vw, 180px); opacity: 0.65; }
-.spider-web--contact { width: clamp(180px, 24vw, 330px); opacity: 0.6; }
+/* Static corner silk complements the interactive top-right spider. */
+.web-residents { position: absolute; inset: 0; pointer-events: none; }
+.web-pocket { position: absolute; bottom: 0; width: 160px; height: 160px; color: #d4d4df; opacity: .48; transform: scaleY(-1); }
+.web-pocket--left { left: 0; }
+.web-pocket--right { right: 0; width: 112px; height: 112px; opacity: .32; transform: scale(-1); }
+.corner-web { display: block; width: 100%; height: 100%; overflow: visible; }
+.silk-loading { min-height: 70svh; display: grid; place-content: center; padding: 24px; }
+.silk-loading p { color: #a1a1aa; font: 10px/1.6 var(--font-mono), monospace; letter-spacing: .08em; }
 @media (max-width: 639px) {
-  .spider-web--about { width: 110px; }
-  .spider-web--projects { width: 115px; }
-  .spider-web--lab { width: 90px; }
-  .spider-web--contact { width: 110px; }
+  .web-pocket--left { width: 76px; height: 76px; opacity: .36; }
+  .web-pocket--right { width: 54px; height: 54px; opacity: .25; }
 }

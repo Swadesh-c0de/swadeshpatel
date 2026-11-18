@@ -1,6 +1,7 @@
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Dock from "@/components/Dock";
+import PageWebs from "@/components/PageWebs";
 import { profileData, socialLinks } from "@/data/socials";
 
 const inter = Inter({
@@ -70,6 +71,7 @@ export default function RootLayout({ children }) {
         <main id="main-content" tabIndex={-1} className="relative z-10 w-full min-h-screen flex flex-col items-center">
           {children}
         </main>
+        <PageWebs />
         <Dock />
       </body>
     </html>

@@ -1,4 +1,3 @@
-import PageWebs from "@/components/PageWebs";
 import { ArrowUpRight, Music, Terminal, Play, Radio, Mic2, MessageCircle, ShieldCheck, Zap, Globe } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 
@@ -9,7 +8,6 @@ import { dChatProject as dChat, vibeFiProject as vibeFi } from "@/data/projects"
 export default function ProjectsClient() {
     return (
         <div className="page-container pt-24 sm:pt-32 pb-32 flex flex-col items-center min-h-screen text-zinc-100">
-            <PageWebs variant="projects" />
 
             {/* HEADER */}
             <div
@@ -70,7 +68,6 @@ export default function ProjectsClient() {
 
                 </div>
             </div>
-
 
             {/* HERO PROJECT: VIBE-FI */}
             <div
@@ -170,7 +167,6 @@ export default function ProjectsClient() {
         </div>
     );
 }
-
 
 function FeatureItem({ icon, label }) {
     return (

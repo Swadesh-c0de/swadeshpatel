@@ -1,4 +1,4 @@
-# Developer Portfolio
+# Swadesh Patel — Developer Portfolio
 
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)](https://nextjs.org/) [![React](https://img.shields.io/badge/React-19-blue?style=flat-square&logo=react)](https://react.dev/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/) [![License](https://img.shields.io/badge/License-MIT-zinc?style=flat-square)](LICENSE) [![Deployment](https://img.shields.io/badge/Deployed_on-Vercel-black?style=flat-square&logo=vercel)](https://swadeshpatel.vercel.app)
 
@@ -40,6 +40,7 @@ A minimalist, high-performance developer portfolio and digital workspace enginee
 ```text
 ├── app/
 │   ├── layout.js              # Root layout with fonts, global providers & Dock
+│   ├── loading.js             # Route suspension & loading state
 │   ├── template.js            # Route transition wrapper
 │   ├── page.js                # Server entry for Home page & tech stack icons
 │   ├── HomeClient.jsx         # Interactive Home workspace & Hero Bento grid
@@ -61,12 +62,16 @@ A minimalist, high-performance developer portfolio and digital workspace enginee
 │       ├── page.js            # Server entry for SEO & metadata
 │       └── ContactClient.jsx  # Social directory & quick contact options
 ├── components/
+│   ├── CornerWeb.jsx          # SVG corner spider web rendering
 │   ├── Dock.jsx               # Floating navigation dock
 │   ├── LivePreview.jsx        # Project live preview iframe viewer
 │   ├── LogoLoop.jsx           # Animated tech stack marquee
-│   ├── PageWebs.jsx           # Multi-corner particle spider web canvas container
+│   ├── PageWebs.jsx           # Corner and ambient spider web container
 │   ├── ProjectArchive.jsx     # Searchable & filterable project catalog
-│   └── SpiderWeb.jsx          # HTML5 Canvas particle & edge network component
+│   ├── SpiderWeb.jsx          # Interactive spider web canvas component
+│   └── WebResidents.jsx       # Corner web pocket containers
+├── hooks/
+│   └── useSpiderMotion.js     # Spring-based pointer interaction & physics hook
 ├── config/
 │   └── constants.js           # Global application constants
 ├── data/

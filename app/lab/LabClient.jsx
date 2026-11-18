@@ -1,11 +1,9 @@
-import PageWebs from "@/components/PageWebs";
 import { ArrowUpRight, Terminal } from "lucide-react";
 import { labItems } from "@/data/lab";
 
 export default function LabClient() {
     return (
         <div className="page-container pt-24 sm:pt-32 pb-32 min-h-screen text-zinc-100">
-            <PageWebs variant="lab" />
 
             {/* HEADER SECTION */}
             <div

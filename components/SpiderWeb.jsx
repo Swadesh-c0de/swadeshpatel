@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useId, useRef } from "react";
+import { useId, useRef } from "react";
 
-import { threadPath, webStyles } from "@/lib/spider-web";
+import { threadPath, webStyle as style } from "@/lib/spider-web";
+import useSpiderMotion from "@/hooks/useSpiderMotion";
 
-const coordinate = (value) => value.toFixed(3);
 // Tapered, angular legs echo the long silhouette of a spider emblem.
 const LEGS = [
   "M-3 -6 L-12 -14 L-17 -37 L-17 -18 L-7 -3 Z",
@@ -13,124 +13,17 @@ const LEGS = [
   "M-3 5 L-13 20 L-15 43 L-9 23 L-1 9 Z",
 ];
 
-export default function SpiderWeb({ variant = "home" }) {
-  const style = webStyles[variant] || webStyles.home;
+export default function SpiderWeb() {
   const { hub, restY, scale } = style;
   const root = useRef(null);
   const silk = useRef(null);
   const spider = useRef(null);
-  const web = useRef(null);
   const id = useId().replaceAll(":", "");
 
-  useEffect(() => {
-    // Keep this effect tied to its own DOM nodes, including during Fast Refresh.
-    const rootElement = root.current;
-    const silkElement = silk.current;
-    const spiderElement = spider.current;
-    const webElement = web.current;
-    if (!rootElement || !silkElement || !spiderElement || !webElement) return;
-
-    let bounds = rootElement.getBoundingClientRect();
-    const localX = (clientX) => {
-      const x = (clientX - bounds.left) / bounds.width * 360;
-      return style.mirror ? 360 - x : x;
-    };
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let disposed = false;
-    let inView = true;
-    let frame;
-    let previous = 0;
-    let elapsed = 0;
-    let retreat = 0;
-    let x = 0;
-    let y = 0;
-    let vx = 0;
-    let vy = 0;
-    let pointer = null;
-    let lastOpacity = null;
-    const measure = () => {
-      if (!disposed && inView && rootElement.isConnected) bounds = rootElement.getBoundingClientRect();
-    };
-    const move = (event) => {
-      if (!disposed && inView && !reducedMotion.matches) pointer = { x: event.clientX, y: event.clientY };
-    };
-    const leave = () => { pointer = null; };
-    const disturb = (event) => {
-      if (disposed || !inView || reducedMotion.matches || bounds.width <= 0) return;
-      move(event);
-      const px = localX(event.clientX);
-      const py = (event.clientY - bounds.top) / bounds.width * 360;
-      if (px > 0 && px < 360 && py > 0 && py < 380) {
-        retreat = style.retreat;
-        vx += (px < hub.x ? 1 : -1) * 2.5;
-      }
-    };
-    const animate = (now) => {
-      if (disposed || !inView || !rootElement.isConnected || reducedMotion.matches || document.hidden || bounds.width <= 0) return;
-      const dt = Math.min((now - (previous || now)) / 16.667, 2);
-      previous = now;
-      elapsed += dt / 60;
-      const px = pointer ? localX(pointer.x) : -1000;
-      const py = pointer ? (pointer.y - bounds.top) / bounds.width * 360 : -1000;
-      const distance = Math.hypot(px - (hub.x + x), py - (restY + y));
-      const proximity = Math.max(0, 1 - distance / 145);
-      const targetX = Math.sin(elapsed * 0.9 + style.phase) * 4 + (hub.x + x - px) * proximity * 0.22;
-      const targetY = Math.sin(elapsed * 0.48 + style.phase) * style.idle - retreat - proximity * style.lift;
-      vx = (vx + (targetX - x) * 0.013 * dt) * Math.pow(0.94, dt);
-      vy = (vy + (targetY - y) * 0.01 * dt) * Math.pow(0.93, dt);
-      x += vx * dt;
-      y += vy * dt;
-      retreat *= Math.pow(0.992, dt);
-      const sx = hub.x + x;
-      const sy = Math.max(hub.y + 26, restY + y);
-      const angle = style.angle - x * 0.65 + vx * 3;
-      silkElement.setAttribute("d", threadPath(sx, sy, angle, vx, style));
-      spiderElement.setAttribute("transform", `translate(${coordinate(sx)} ${coordinate(sy)}) rotate(${coordinate(angle)}) scale(${scale})`);
-      const opacity = Math.round((0.82 + proximity * 0.18) * 1000) / 1000;
-      if (opacity !== lastOpacity) {
-        webElement.style.opacity = String(opacity);
-        lastOpacity = opacity;
-      }
-      frame = requestAnimationFrame(animate);
-    };
-    const start = () => {
-      cancelAnimationFrame(frame);
-      if (disposed) return;
-      previous = 0;
-      const running = !disposed && inView && rootElement.isConnected && !reducedMotion.matches && !document.hidden;
-      rootElement.style.setProperty("--spider-play", running ? "running" : "paused");
-      if (running) frame = requestAnimationFrame(animate);
-    };
-    const observer = new IntersectionObserver(([entry]) => {
-      inView = entry.isIntersecting;
-      measure();
-      start();
-    });
-    observer.observe(rootElement);
-    window.addEventListener("pointermove", move, { passive: true });
-    window.addEventListener("pointerdown", disturb, { passive: true });
-    document.addEventListener("pointerleave", leave);
-    window.addEventListener("resize", measure);
-    window.addEventListener("scroll", measure, { passive: true });
-    document.addEventListener("visibilitychange", start);
-    reducedMotion.addEventListener("change", start);
-    start();
-    return () => {
-      disposed = true;
-      cancelAnimationFrame(frame);
-      observer.disconnect();
-      window.removeEventListener("pointermove", move);
-      window.removeEventListener("pointerdown", disturb);
-      document.removeEventListener("pointerleave", leave);
-      window.removeEventListener("resize", measure);
-      window.removeEventListener("scroll", measure);
-      document.removeEventListener("visibilitychange", start);
-      reducedMotion.removeEventListener("change", start);
-    };
-  }, [style, hub, restY, scale]);
+  useSpiderMotion({ root, silk, spider });
 
   return (
-    <div ref={root} className={`spider-web${variant === "home" ? "" : ` spider-web--${variant}`}`} data-web-variant={variant} data-web-position={style.mirror ? "left" : "right"} aria-hidden="true">
+    <div ref={root} className="spider-web" data-web-position={style.mirror ? "left" : "right"} aria-hidden="true">
       <svg viewBox="0 0 360 410" fill="none" focusable="false">
         <defs>
           <linearGradient id={`${id}-thread`} x1={hub.x} y1={hub.y} x2={hub.x} y2={restY + 40} gradientUnits="userSpaceOnUse">
@@ -148,7 +41,7 @@ export default function SpiderWeb({ variant = "home" }) {
           </filter>
         </defs>
         <g transform={style.mirror ? "translate(360 0) scale(-1 1)" : undefined}>
-          <g ref={web} stroke={`url(#${id}-silk)`} strokeLinecap="round" strokeWidth={style.stroke}>
+          <g stroke={`url(#${id}-silk)`} strokeLinecap="round" strokeWidth={style.stroke}>
             {style.spokes.map(({ d, opacity }, index) => <path key={index} d={d} opacity={opacity} />)}
             {style.rings.map(({ d, opacity }, index) => <path key={index} d={d} opacity={opacity} />)}
           </g>

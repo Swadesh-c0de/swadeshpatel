@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import LogoLoop from "@/components/LogoLoop";
-import PageWebs from "@/components/PageWebs";
 import { MapPin, Download, ArrowUpRight } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -13,8 +12,6 @@ import { socialLinks, profileData } from "@/data/socials";
 export default function HomeClient({ techStack = [] }) {
   return (
     <div className="page-container pb-32 flex flex-col items-center">
-
-      <PageWebs />
 
       {/* HERO */}
       <section className="home-hero w-full py-20 lg:py-32 flex flex-col items-center text-center">
@@ -120,11 +117,10 @@ export default function HomeClient({ techStack = [] }) {
   );
 }
 
-function BentoCard({ children, className = "" }) {
-  const hasBorder = !className.includes("border-none") && !className.includes("border-0");
+function BentoCard({ children, className = "", borderless = false }) {
   return (
     <div
-      className={`rounded-3xl ${hasBorder ? "bento-card border border-zinc-800/50" : ""} overflow-hidden ${className}`}
+      className={`rounded-3xl ${borderless ? "" : "bento-card border border-zinc-800/50"} overflow-hidden ${className}`}
     >
       {children}
     </div>
@@ -132,8 +128,6 @@ function BentoCard({ children, className = "" }) {
 }
 
 function FeaturedProjectsCard() {
-  const featured = featuredProjects;
-
   return (
     <BentoCard className="h-full sm:col-span-2 md:col-span-3 lg:col-span-2 order-1 lg:order-2 p-6 sm:p-8 flex flex-col justify-between bg-zinc-950/40 border-zinc-800/40 hover:border-zinc-700/60 transition-all duration-500">
       <div>
@@ -148,7 +142,7 @@ function FeaturedProjectsCard() {
         </div>
 
         <div className="divide-y divide-zinc-900/80">
-          {featured.map((proj) => (
+          {featuredProjects.map((proj) => (
             <div
               key={proj.title}
               className="py-3.5 first:pt-0 last:pb-0 flex items-center justify-between gap-4 group/row transition-all duration-300"
@@ -207,7 +201,7 @@ function FeaturedProjectsCard() {
 
 function PCArtCard() {
   return (
-    <BentoCard className="h-full min-h-72 sm:col-span-2 md:col-span-3 lg:col-span-2 order-2 lg:order-1 flex items-center justify-center border-0 border-none bg-transparent">
+    <BentoCard borderless className="h-full min-h-72 sm:col-span-2 md:col-span-3 lg:col-span-2 order-2 lg:order-1 flex items-center justify-center bg-transparent">
         <div className="relative w-full flex items-center justify-center">
           <Image
             src="/images/pc-isometric-white.png"
