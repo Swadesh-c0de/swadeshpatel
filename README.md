@@ -131,6 +131,8 @@ A minimalist, high-performance developer portfolio and digital workspace enginee
    npm run start
    ```
 
+To show the résumé links on Home and About, set `NEXT_PUBLIC_RESUME_URL` to a public résumé URL in `.env.local` or in the deployment environment before building. For a PDF you serve from `public/resume.pdf`, set the value to `/resume.pdf`.
+
 ---
 
 ## 📬 Connect

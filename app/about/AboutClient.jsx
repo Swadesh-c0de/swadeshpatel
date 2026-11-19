@@ -25,16 +25,18 @@ export default function AboutClient({ age }) {
 
           <div className="flex items-center gap-4">
             <div className="w-12 sm:w-16 h-[2px] bg-zinc-800 rounded-full" />
-            <a
-              href={resumeUrl}
-              download
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-zinc-800/80 bg-zinc-950/40 text-zinc-300 hover:text-white hover:border-zinc-700 hover:bg-zinc-900/60 transition-all duration-300 group"
-            >
-              <Download className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
-              <span className="text-[11px] font-mono uppercase tracking-wider">Download Resume</span>
-            </a>
+            {resumeUrl && (
+              <a
+                href={resumeUrl}
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-zinc-800/80 bg-zinc-950/40 text-zinc-300 hover:text-white hover:border-zinc-700 hover:bg-zinc-900/60 transition-all duration-300 group"
+              >
+                <Download className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
+                <span className="text-[11px] font-mono uppercase tracking-wider">Download Resume</span>
+              </a>
+            )}
           </div>
         </div>
 

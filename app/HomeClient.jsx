@@ -29,16 +29,18 @@ export default function HomeClient({ techStack = [] }) {
 
           <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
             <Link href="/projects" className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-100 text-zinc-950 font-medium rounded-full hover:bg-white transition-colors">Explore my work <ArrowUpRight size={16} aria-hidden="true" /></Link>
-            <a
-              href={resumeUrl}
-              download
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-zinc-700 text-zinc-200 font-medium rounded-full hover:bg-white/5 hover:border-zinc-500 transition-colors"
-            >
-              <Download className="w-4 h-4" />
-              <span>Download Resume</span>
-            </a>
+            {resumeUrl && (
+              <a
+                href={resumeUrl}
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-zinc-700 text-zinc-200 font-medium rounded-full hover:bg-white/5 hover:border-zinc-500 transition-colors"
+              >
+                <Download className="w-4 h-4" />
+                <span>Download Resume</span>
+              </a>
+            )}
           </div>
         </div>
       </section>
